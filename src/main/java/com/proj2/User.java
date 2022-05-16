@@ -1,6 +1,6 @@
 package com.proj2;
 
-public class User
+public class User extends Person
 {
     private int points;
 

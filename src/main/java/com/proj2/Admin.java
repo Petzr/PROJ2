@@ -1,6 +1,6 @@
 package com.proj2;
 
-public class Admin
+public class Admin extends Person
 {
 
 
