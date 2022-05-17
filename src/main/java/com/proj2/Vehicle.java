@@ -10,6 +10,7 @@ public class Vehicle
         this.vehicles = vehicles;
     }
     public Vehicle() {
+        // punten is nog niet overbesproken. Dit is om beetje een beeld te geven
         vehicles.put("auto", 1.0);
         vehicles.put("vliegtuig", 3.0);
         vehicles.put("helikopter", 3.0);
