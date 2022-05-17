@@ -8,5 +8,9 @@ public class Main {
 
         double points = vehicle.getPointsOfVehicle("fiets");
         System.out.println(points);
+        double points1 = vehicle.getPointsOfVehicle("motor");
+        System.out.println(points1);
+        double points2 = vehicle.getPointsOfVehicle("asdf");
+        System.out.println(points);
     }
 }

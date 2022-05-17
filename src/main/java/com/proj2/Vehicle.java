@@ -30,6 +30,10 @@ public class Vehicle
     }
 
     public double getPointsOfVehicle(String vehicleName) {
-        return vehicles.get(vehicleName);
+        try {
+            return vehicles.get(vehicleName);
+        } catch (Exception e) {
+            return -1.0;
+        }
     }
 }
