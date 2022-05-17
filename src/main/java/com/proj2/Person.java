@@ -19,6 +19,9 @@ public abstract class Person
     public int som(int getal, int getal2) {
         return getal - getal2;
     }
+    public int min (int getal, int getal2) {
+        return getal + getal2;
+    }
 }
 
 
