@@ -4,9 +4,14 @@ import java.util.HashMap;
 
 public class Vehicle
 {
-    private HashMap<String, Integer> vehicles;
+    private static HashMap<String, Integer> vehicles;
 
-    public int calculatePoints() {
-
+    public static double calculatePoints(String vehicle, double km) {
+        for (String v : vehicles.keySet()) {
+            if (v.equals(vehicle)) {
+                return vehicles.get(vehicle) * km;
+            }
+        }
+        return -1;
     }
 }
