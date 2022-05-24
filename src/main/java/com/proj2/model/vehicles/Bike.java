@@ -9,4 +9,3 @@ public class Bike extends AbstractVehicle {
         return 0;
     }
 }
-v
