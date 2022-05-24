@@ -4,7 +4,9 @@ import com.proj2.model.abstraction.AbstractVehicle;
 
 public class Bike extends AbstractVehicle {
 
-    public Bike(String name, double modifier) {
-        super(name, modifier);
+    @Override
+    public double getModifier() {
+        return 0;
     }
 }
+v
