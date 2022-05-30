@@ -20,5 +20,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Button layoutY="1.0" mnemonicParsing="false" text="&lt;">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
