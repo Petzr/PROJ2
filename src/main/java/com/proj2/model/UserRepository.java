@@ -11,5 +11,4 @@ public class UserRepository extends AbstractRepository<AbstractUser> {
         instance =  instance == null ? new UserRepository() : instance;
         return instance;
     }
-
 }
