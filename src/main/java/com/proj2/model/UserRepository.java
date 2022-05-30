@@ -1,9 +1,10 @@
 package com.proj2.model;
 
+import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.abstraction.AbstractRepository;
-import com.proj2.model.abstraction.AbstractUser;
+import com.proj2.model.abstraction.AbstractPerson;
 
-public class UserRepository extends AbstractRepository<AbstractUser> {
+public class UserRepository extends AbstractRepository<AbstractPerson> {
 
     private static UserRepository instance;
 
