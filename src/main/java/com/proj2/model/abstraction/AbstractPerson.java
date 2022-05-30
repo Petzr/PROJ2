@@ -7,8 +7,14 @@ public abstract class AbstractPerson extends AbstractEntity {
     private String email;
     private String password;
 
+    public AbstractPerson(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public boolean comparePassword(String password){
-        return false;
+        return this.password.equals(password);
     }
 
 }
