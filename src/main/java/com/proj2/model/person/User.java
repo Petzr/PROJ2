@@ -11,8 +11,11 @@ public class User extends AbstractPerson {
         this.points = 0;
     }
 
-    public void addPoints(int points){
-        this.points += points;
+    public int getPoints() {
+        return points;
     }
 
+    public void setPoints(int points) {
+        this.points = points;
+    }
 }
