@@ -12,7 +12,7 @@ public class User extends AbstractPerson {
     private ArrayList<Travel> travels;
     public void addPoints(){}
 
-    public void newTravel(AbstractVehicle vehicle, double aantalKM) {
+    public void newTravel(AbstractVehicle vehicle, int aantalKM) {
         Travel travel = new Travel(vehicle, aantalKM);
         points += travel.getPoints();
         travels.add(travel);
