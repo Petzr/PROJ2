@@ -10,7 +10,7 @@ public class Travel {
         points = aantalKM * vehicle.getModifier();
     }
 
-    public double getPoints() {
+    public int getPoints() {
         return points;
     }
 }
