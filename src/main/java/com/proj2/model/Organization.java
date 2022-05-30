@@ -1,4 +1,4 @@
-package com.proj2;
+package com.proj2.model;
 
 import com.proj2.model.abstraction.AbstractPerson;
 
