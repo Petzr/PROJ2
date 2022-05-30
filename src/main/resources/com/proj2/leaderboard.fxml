@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj2.gui.LeaderboardController">
+<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj2.gui.LeaderboardController">
    <children>
       <Label layoutX="47.0" layoutY="43.0" text="Leaderboard">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <TableView fx:id="leaderboardTable" layoutX="19.0" layoutY="101.0" prefHeight="423.0" prefWidth="250.0">
+      <TableView fx:id="leaderboardTable" layoutY="101.0" prefHeight="450.0" prefWidth="300.0">
         <columns>
           <TableColumn prefWidth="75.0" text="User" />
           <TableColumn prefWidth="75.0" text="Points" />
