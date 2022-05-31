@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj2.gui.DashboardController">
+<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <Label fx:id="nameUser" layoutX="121.0" layoutY="117.0" text="&lt; NAAM &gt;" />
       <Label fx:id="pointsUser" layoutX="92.0" layoutY="203.0" text="&lt; AANTAL PUNTEN &gt;" />

@@ -18,6 +18,11 @@ public class UserDashboard {
         Scene scene = null;
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/dashboard.fxml"));
+
+            DashboardController controller = new DashboardController();
+            controller.setUser(user);
+            fxmlLoader.setController(controller);
+
             scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
             System.out.println("FOUT");
@@ -26,11 +31,12 @@ public class UserDashboard {
         if (scene != null) {
             setScene(scene);
         }
+
+        stage.setUserData(user);
     }
 
     public void setScene(Scene scene) {
         stage.setScene(scene);
-        Label welkomText = (Label) scene.lookup("#nameUser");
         stage.setTitle(user.getName());
         stage.show();
 

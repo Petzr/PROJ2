@@ -7,6 +7,6 @@ public class LogInController
 {
     public void logInButtonClick(ActionEvent actionEvent)
     {
-        new UserDashboard(new User("peter", "email", "password"));
+        new UserDashboard(new User("Peter", "email", "password"));
     }
 }
