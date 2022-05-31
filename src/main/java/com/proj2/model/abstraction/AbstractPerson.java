@@ -17,4 +17,11 @@ public abstract class AbstractPerson extends AbstractEntity {
         return this.password.equals(password);
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

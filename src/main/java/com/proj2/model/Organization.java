@@ -18,6 +18,11 @@ public class Organization
         return allUsers;
     }
 
+    public AbstractPerson getUser(String email, String password) {
+        for(AbstractPerson user : allUsers) if(user.getEmail().equalsIgnoreCase(email)) if(user.getPassword().equals(password)) return user;
+        return null;
+    }
+
     public void addUser(AbstractPerson user) {
         this.allUsers.add(user);
     }
