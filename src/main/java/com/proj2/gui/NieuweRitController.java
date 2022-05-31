@@ -2,6 +2,8 @@ package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -9,7 +11,11 @@ import java.util.ResourceBundle;
 
 public class NieuweRitController implements Initializable, IControllerInfo
 {
-    AbstractPerson user;
+    private AbstractPerson user;
+
+    public TableView vehiclesTable;
+    public TextField numberOfKm;
+
     public void calculatePoints(ActionEvent actionEvent)
     {
     }
