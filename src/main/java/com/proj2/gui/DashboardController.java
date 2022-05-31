@@ -3,11 +3,14 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,7 +22,24 @@ public class DashboardController implements Initializable
     public Label pointsUser;
     public void nieuweRit(ActionEvent actionEvent)
     {
+        Node node = (Node) actionEvent.getSource();
+        Scene scene = (Scene) node.getScene();
+        Stage stage = (Stage) scene.getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/nieuwe-rit.fxml"));
 
+            NieuweRitController controller = new NieuweRitController();
+            controller.setUser(user);
+            fxmlLoader.setController(controller);
+
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("FOUT");
+//            throw new RuntimeException(e);
+        }
+        if (scene != null) {
+            stage.setScene(scene);
+        }
     }
 
     public void showLeaderboard(ActionEvent actionEvent)
