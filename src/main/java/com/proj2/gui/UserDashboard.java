@@ -15,19 +15,9 @@ public class UserDashboard {
 
     public UserDashboard(AbstractPerson user) {
         this.user = user;
-        Scene scene = null;
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/dashboard.fxml"));
 
-            DashboardController controller = new DashboardController();
-            controller.setUser(user);
-            fxmlLoader.setController(controller);
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
-            scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            System.out.println("FOUT");
-//            throw new RuntimeException(e);
-        }
         if (scene != null) {
             setScene(scene);
         }

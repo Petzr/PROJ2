@@ -20,6 +20,10 @@ public class NieuweRitController implements Initializable, IControllerInfo
     {
     }
 
+    public void backToDashboard(ActionEvent actionEvent) {
+
+    }
+
     public void setUser(AbstractPerson user) {
         this.user = user;
     }

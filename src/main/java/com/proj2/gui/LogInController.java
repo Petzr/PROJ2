@@ -24,7 +24,5 @@ public class LogInController implements Initializable, IControllerInfo
     public void setUser(AbstractPerson user) {}
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 }

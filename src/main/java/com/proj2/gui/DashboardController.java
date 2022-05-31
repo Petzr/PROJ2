@@ -20,26 +20,19 @@ public class DashboardController implements Initializable, IControllerInfo
 
     public Label nameUser;
     public Label pointsUser;
+
+
     public void nieuweRit(ActionEvent actionEvent)
     {
         Node node = (Node) actionEvent.getSource();
-        Scene scene = node.getScene();
-        Stage stage = (Stage) scene.getWindow();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/nieuwe-rit.fxml"));
+        Stage stage = (Stage) node.getScene().getWindow();
 
-            NieuweRitController controller = new NieuweRitController();
-            controller.setUser(user);
-            fxmlLoader.setController(controller);
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
 
-            scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            System.out.println("FOUT");
-//            throw new RuntimeException(e);
-        }
         if (scene != null) {
             stage.setScene(scene);
         }
+
     }
 
     public void showLeaderboard(ActionEvent actionEvent)
