@@ -9,6 +9,10 @@ public class Logic {
     private static AbstractPerson _loggedIn;
     private static Organization _organization;
 
+    public Logic() {
+        _organization = new Organization(_loggedIn);
+    }
+
     public static double calculatePoints(AbstractVehicle vehicle, int km) {
         return vehicle.getModifier() * km;
     }

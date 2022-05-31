@@ -10,7 +10,7 @@ public class Organization
 
     public Organization(AbstractPerson creator) {
         ArrayList<AbstractPerson> allUsersTemp = new ArrayList<>();
-        allUsersTemp.add(creator);
+        if (creator != null) allUsersTemp.add(creator);
         this.allUsers = allUsersTemp;
     }
 
