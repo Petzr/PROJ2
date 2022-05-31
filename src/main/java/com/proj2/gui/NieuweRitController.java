@@ -2,8 +2,12 @@ package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 
-public class NieuweRitController
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class NieuweRitController implements Initializable, IControllerInfo
 {
     AbstractPerson user;
     public void calculatePoints(ActionEvent actionEvent)
@@ -12,5 +16,10 @@ public class NieuweRitController
 
     public void setUser(AbstractPerson user) {
         this.user = user;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

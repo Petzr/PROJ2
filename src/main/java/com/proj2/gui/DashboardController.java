@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable
+public class DashboardController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
 
@@ -23,7 +23,7 @@ public class DashboardController implements Initializable
     public void nieuweRit(ActionEvent actionEvent)
     {
         Node node = (Node) actionEvent.getSource();
-        Scene scene = (Scene) node.getScene();
+        Scene scene = node.getScene();
         Stage stage = (Stage) scene.getWindow();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/nieuwe-rit.fxml"));
