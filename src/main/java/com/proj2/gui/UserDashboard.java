@@ -3,6 +3,7 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,5 +30,9 @@ public class UserDashboard {
 
     public void setScene(Scene scene) {
         stage.setScene(scene);
+        Label welkomText = (Label) scene.lookup("#nameUser");
+        stage.setTitle(user.getName());
+        stage.show();
+
     }
 }
