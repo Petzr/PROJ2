@@ -40,7 +40,17 @@ public class DashboardController implements Initializable, IControllerInfo
 
     public void showLeaderboard(ActionEvent actionEvent)
     {
-        System.out.println("LEADERBOARD");
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
+
+        // spreekt voorzich denk...
+        if (scene != null) {
+            stage.setScene(scene);
+        }
     }
 
     public void logOutButton(ActionEvent actionEvent)
