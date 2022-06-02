@@ -45,7 +45,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
 
         // spreekt voorzich denk...
         if (scene != null) {
