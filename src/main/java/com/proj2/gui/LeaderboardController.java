@@ -57,8 +57,8 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         Organization temp = new Organization(user);
 
         leaderboardTable = new TableView();
-        TableColumn<User, String> column1 = new TableColumn<>("Naam");
-        TableColumn<User, String> column2 = new TableColumn<>("Punten");
+        TableColumn<User, String> column1 = new TableColumn<>("Name");
+        TableColumn<User, String> column2 = new TableColumn<>("Points");
 
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
         column2.setCellValueFactory(new PropertyValueFactory<>("points"));

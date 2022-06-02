@@ -52,7 +52,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     private void createVehicleTable() {
         vehiclesTable = new TableView<>();
-        TableColumn<User, String> column1 = new TableColumn<>("Naam");
+        TableColumn<User, String> column1 = new TableColumn<>("Name");
         TableColumn<User, String> column2 = new TableColumn<>("Modifier");
 
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
