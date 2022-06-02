@@ -1,12 +1,16 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.User;
+import com.proj2.model.vehicles.*;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -43,6 +47,26 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    private void createVehicleTable() {
+        vehiclesTable = new TableView<>();
+        TableColumn<User, String> column1 = new TableColumn<>("Naam");
+        TableColumn<User, String> column2 = new TableColumn<>("Modifier");
+
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("modifier"));
+
+        vehiclesTable.getColumns().add(column1);
+        vehiclesTable.getColumns().add(column2);
+
+        vehiclesTable.getItems().add(new Bike());
+        vehiclesTable.getItems().add(new DieselCar());
+        vehiclesTable.getItems().add(new ElectricCar());
+        vehiclesTable.getItems().add(new GasolineCar());
+        vehiclesTable.getItems().add(new Plane());
+        vehiclesTable.getItems().add(new PublicTransport());
 
     }
 }

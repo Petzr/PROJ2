@@ -1,14 +1,19 @@
 package com.proj2.gui;
 
+import com.proj2.model.Organization;
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -17,7 +22,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 {
     private AbstractPerson user;
 
-    public TableView leaderboardTable;
+    public TableView<> leaderboardTable;
 
     public void backToDashboard(ActionEvent actionEvent) {
         // dit is nodig om de stage te bepalen
@@ -48,6 +53,22 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         createTable();
     }
 
-    private void createTable() {
+    private void createTable(){
+        Organization temp = new Organization(user);
+
+        leaderboardTable = new TableView();
+        TableColumn<User, String> column1 = new TableColumn<>("Naam");
+        TableColumn<User, String> column2 = new TableColumn<>("Punten");
+
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("points"));
+
+        leaderboardTable.getColumns().add(column1);
+        leaderboardTable.getColumns().add(column2);
+
+        //nog fixen
+       /* for (user : temp.getAllUsers() ) {
+            leaderboardTable.getItems().add(user);
+        } */
     }
 }
