@@ -1,7 +1,11 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.Admin;
 import com.proj2.model.person.User;
+import com.proj2.service.AuthenticationProvider;
+import com.proj2.service.AuthorizationProvider;
+import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -19,12 +23,14 @@ public class LogInController implements Initializable, IControllerInfo
 
     public void logInButtonClick(ActionEvent actionEvent)
     {
-        User user = new User("Peter", "email", "password");
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setUserData(user);
-        stage.show();
+        AbstractPerson login = AuthorizationProvider.login(emailField.getText(), passwordField.getText());
+        if (login != null) {
+            Scene scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setUserData(login);
+            stage.show();
+        }
     }
 
     @Override

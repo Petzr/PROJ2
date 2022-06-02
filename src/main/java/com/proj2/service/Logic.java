@@ -22,6 +22,10 @@ public class Logic {
         else users.sort(new DescendingComparator());
         return users;
     }
+
+    public static Organization get_organization() {
+        return _organization;
+    }
 }
 
 class AscendingComparator implements Comparator<User> {

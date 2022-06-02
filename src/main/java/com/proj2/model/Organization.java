@@ -34,4 +34,6 @@ public class Organization
     public void removeUser(AbstractPerson user) {
         this.allUsers.remove(user);
     }
+
+    public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
 }
