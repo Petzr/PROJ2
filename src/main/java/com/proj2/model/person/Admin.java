@@ -11,10 +11,20 @@ public class Admin extends AbstractPerson {
         this.organization = organization;
     }
 
-    public void addUser(String name, String email, String password) {
-        organization.addUser(new User(name, email, password));
+    public boolean addUser(String name, String email, String password) {
+        boolean userExists = false;
+        for (AbstractPerson user : organization.getAllUsers())
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                userExists = true;
+                break;
+            }
+
+        AbstractPerson user = new User(name, email, password);
+        if (!userExists) organization.addUser(user);
+        return organization.getAllUsers().contains(user);
     }
-    public void removeUser(User user) {
+    public boolean removeUser(User user) {
         organization.removeUser(user);
+        return !organization.getAllUsers().contains(user);
     }
 }
