@@ -22,7 +22,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 {
     private AbstractPerson user;
 
-    public TableView<> leaderboardTable;
+    public TableView leaderboardTable;
 
     public void backToDashboard(ActionEvent actionEvent) {
         // dit is nodig om de stage te bepalen
@@ -66,9 +66,8 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         leaderboardTable.getColumns().add(column1);
         leaderboardTable.getColumns().add(column2);
 
-        //nog fixen
-       /* for (user : temp.getAllUsers() ) {
+        for (AbstractPerson user : temp.getAllUsers() ) {
             leaderboardTable.getItems().add(user);
-        } */
+        }
     }
 }
