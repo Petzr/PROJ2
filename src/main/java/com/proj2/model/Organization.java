@@ -6,7 +6,11 @@ import java.util.ArrayList;
 
 public class Organization
 {
-    private ArrayList<AbstractPerson> allUsers;
+    private final ArrayList<AbstractPerson> allUsers;
+
+    public Organization() {
+        this.allUsers = new ArrayList<>();
+    }
 
     public Organization(AbstractPerson creator) {
         ArrayList<AbstractPerson> allUsersTemp = new ArrayList<>();
@@ -19,7 +23,7 @@ public class Organization
     }
 
     public AbstractPerson getUser(String email, String password) {
-        for(AbstractPerson user : allUsers) if(user.getEmail().equalsIgnoreCase(email)) if(user.getPassword().equals(password)) return user;
+        for(AbstractPerson user : allUsers) if(user.getEmail().equalsIgnoreCase(email)) if(user.comparePassword(password)) return user;
         return null;
     }
 

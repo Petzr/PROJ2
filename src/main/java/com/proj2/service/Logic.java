@@ -4,27 +4,36 @@ import com.proj2.model.Organization;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.abstraction.AbstractVehicle;
 import com.proj2.model.person.Admin;
+import com.proj2.model.person.User;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Logic {
-    private static AbstractPerson _loggedIn;
-    private static Organization _organization;
-
-    public Logic() {
-        _organization = new Organization(_loggedIn);
-    }
+    private static final Organization _organization = new Organization();
 
     public static double calculatePoints(AbstractVehicle vehicle, int km) {
         return vehicle.getModifier() * km;
     }
-    public static boolean login(String email, String password) {
-        if (_loggedIn == null) {
-            _loggedIn = _organization.getUser(email, password);
-            return _loggedIn != null;
-        } return false;
-    }
 
-    public static boolean register(String name, String email, String password) {
-        if (_loggedIn instanceof Admin) return ((Admin) _loggedIn).addUser(name, email, password);
-        return false;
+    public static ArrayList<User> sortUsersByPoints(ArrayList<User> users, boolean ascending) {
+        if (ascending) users.sort(new AscendingComparator());
+        else users.sort(new DescendingComparator());
+        return users;
+    }
+}
+
+class AscendingComparator implements Comparator<User> {
+    @Override
+    public int compare(User user1, User user2) {
+        return user1.getPoints().compareTo(user2.getPoints());
+    }
+}
+
+class DescendingComparator implements Comparator<User> {
+    @Override
+    public int compare(User user1, User user2) {
+        return user2.getPoints().compareTo(user1.getPoints());
     }
 }

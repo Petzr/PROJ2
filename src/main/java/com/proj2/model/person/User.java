@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class User extends AbstractPerson {
 
     private ArrayList<Travel> travels;
-    private int points;
+    private Integer points;
 
 
     public User(String name, String email, String password) {
@@ -17,11 +17,11 @@ public class User extends AbstractPerson {
         this.points = 0;
     }
 
-    public int getPoints() {
+    public Integer getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
     public void addPoints(){}

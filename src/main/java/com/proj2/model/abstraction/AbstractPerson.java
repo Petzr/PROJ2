@@ -21,10 +21,6 @@ public abstract class AbstractPerson extends AbstractEntity {
     public String getEmail() {
         return email;
     }
-
-    public String getPassword() {
-        return password;
-    }
       
     public String getName() {
         return name;
