@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj2.gui.RegistrationController">
+   <children>
+      <TextField fx:id="nametf" layoutX="26.0" layoutY="174.0" />
+      <TextField fx:id="mailtf" layoutX="26.0" layoutY="215.0" />
+      <PasswordField fx:id="passwordtf" layoutX="26.0" layoutY="256.0" />
+      <PasswordField fx:id="passwordtf2" layoutX="27.0" layoutY="294.0" />
+      <Button fx:id="registerbttn" layoutX="59.0" layoutY="336.0" mnemonicParsing="false" text="Register" />
+      <Text layoutX="208.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text layoutX="208.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" />
+      <Text layoutX="206.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <Text layoutX="101.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" wrappingWidth="69.693359375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="returnbttn" layoutX="230.0" layoutY="497.0" mnemonicParsing="false" onAction="#returnbttn" text="Return" />
+      <Text layoutX="206.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" wrappingWidth="93.693359375" />
+   </children>
+</AnchorPane>
