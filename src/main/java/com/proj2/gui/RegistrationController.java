@@ -26,11 +26,13 @@ public class RegistrationController  {
 
     public void retbttn(MouseEvent mouseEvent) throws IOException {
         // return naar de vorige pagina
+        HelloApplication h = new HelloApplication();
+         h.changeScene("dashboard.fxml);"); // misschien naar een ander scherm ?
     }
 
     public void regbttn(MouseEvent mouseEvent) throws IOException {
         if(passwordtf.getText().equals(passwordtf2.getText())) {
-            //new user..
+            //new user(gettext(),.....)
         }
     }
 }
