@@ -30,7 +30,7 @@ public class AdminDashboardController
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new DeletingUserController());
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new RegistrationController());
 
         // spreekt voorzich denk...
         if (scene != null) {
@@ -40,7 +40,17 @@ public class AdminDashboardController
 
     @FXML
     void verwijderGebruiker(ActionEvent event) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
 
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/deleting-user.fxml", new DeletingUserController());
+
+        // spreekt voorzich denk...
+        if (scene != null) {
+            stage.setScene(scene);
+        }
     }
 
     @FXML

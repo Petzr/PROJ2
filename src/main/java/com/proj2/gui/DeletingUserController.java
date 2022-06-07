@@ -3,13 +3,17 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class DeletingUserController
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class DeletingUserController implements Initializable, IControllerInfo
 {
 
     private AbstractPerson user;
@@ -43,4 +47,15 @@ public class DeletingUserController
 
     }
 
+    @Override
+    public void setUser(AbstractPerson user)
+    {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+
+    }
 }
