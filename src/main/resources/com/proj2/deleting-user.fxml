@@ -12,7 +12,7 @@
       <TextField fx:id="mailtf" layoutX="26.0" layoutY="215.0" />
       <PasswordField fx:id="passwordUsertf" layoutX="26.0" layoutY="256.0" />
       <PasswordField fx:id="passwordAdmintf" layoutX="27.0" layoutY="294.0" />
-      <Button layoutX="59.0" layoutY="336.0" mnemonicParsing="false" onAction="#registerUser" text="Confirm deletion" />
+      <Button layoutX="59.0" layoutY="336.0" mnemonicParsing="false" onAction="#deletingUser" text="Confirm deletion" />
       <Text layoutX="208.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" AnchorPane.leftAnchor="180.0" />
       <Text layoutX="206.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password user" AnchorPane.leftAnchor="180.0" />
       <Text layoutX="65.0" layoutY="94.0" strokeWidth="0.0" text="Deleting a user" textAlignment="CENTER" wrappingWidth="169.693359375" AnchorPane.bottomAnchor="451.482421875" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="75.0">

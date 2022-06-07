@@ -30,7 +30,7 @@ public class AdminDashboardController
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new deletingUserController());
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new DeletingUserController());
 
         // spreekt voorzich denk...
         if (scene != null) {

@@ -9,7 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Registration
+public class DeletingUserController
 {
 
     private AbstractPerson user;
@@ -18,18 +18,15 @@ public class Registration
     private TextField mailtf;
 
     @FXML
-    private TextField nametf;
+    private PasswordField passwordAdmintf;
 
     @FXML
-    private PasswordField passwordtf;
+    private PasswordField passwordUsertf;
 
     @FXML
-    private PasswordField passwordtf2;
-
-    @FXML
-    void backToDashboard(ActionEvent event) {
+    public void backToDashboard(ActionEvent actionEvent) {
         // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
+        Node node = (Node) actionEvent.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
@@ -42,7 +39,7 @@ public class Registration
     }
 
     @FXML
-    void registerUser(ActionEvent event) {
+    void deletingUser(ActionEvent event) {
 
     }
 
