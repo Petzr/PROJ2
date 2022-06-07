@@ -10,14 +10,14 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="66.0" layoutY="31.0" text="Nieuwe rit invoeren">
+      <Label alignment="CENTER" layoutX="66.0" layoutY="31.0" text="New trip" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TableView fx:id="vehiclesTable" layoutX="36.0" layoutY="107.0" prefHeight="200.0" prefWidth="216.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Voertuig" />
+          <TableColumn prefWidth="75.0" text="Vehicle" />
           <TableColumn prefWidth="75.0" text="Modifier" />
         </columns>
          <columnResizePolicy>
