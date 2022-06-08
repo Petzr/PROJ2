@@ -30,4 +30,7 @@ public class Organization
     public void removeUser(AbstractPerson user) {
         this.allUsers.remove(user);
     }
+
+    public void removeUser(String email) {
+        allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
 }
