@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="nameUser" layoutX="118.0" layoutY="194.0" text="&lt; NAAM &gt;" />
+      <Button layoutX="28.0" layoutY="349.0" mnemonicParsing="false" onAction="#nieuweGebruiker" text="Gebruiker toevoegen" />
+      <Button layoutX="179.0" layoutY="375.0" mnemonicParsing="false" onAction="#showLeaderboard" text="Leaderboard" />
+      <Button layoutX="124.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutButton" text="Log uit" />
+      <Button layoutX="28.0" layoutY="401.0" mnemonicParsing="false" onAction="#verwijderGebruiker" text="Gebruiker verwijderen" />
+      <ImageView fitHeight="195.0" fitWidth="238.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/betabittransparent.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
