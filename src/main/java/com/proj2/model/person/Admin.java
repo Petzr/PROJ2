@@ -27,4 +27,10 @@ public class Admin extends AbstractPerson {
         organization.removeUser(user);
         return !organization.getAllUsers().contains(user);
     }
+
+    public boolean removeUser(String email) {
+        organization.removeUser(email);
+        for(AbstractPerson user : organization.getAllUsers()) if(user.getEmail().equalsIgnoreCase(email)) return false;
+        return true;
+    }
 }
