@@ -12,14 +12,15 @@ public class Organization
 
     public Organization() {
         this.allUsers = new ArrayList<>();
-        this.allUsers.add(new Admin("Admin", "admin@foo.bar", "Admin213!"));
+//        this.allUsers.add(new Admin("Admin", "admin@foo.bar", "Admin213!"));
+        this.allUsers.add(new Admin("Admin", "admin@foo.bar", "123"));
     }
 
     public Organization(AbstractPerson creator) {
         this.allUsers = new ArrayList<>();
         if (creator != null) this.allUsers.add(creator);
 //        else this.allUsers.add(new Admin("Admin", "admin@foo.bar", "Admin213!"));
-        else this.allUsers.add(new Admin("Admin", "admin@foo.bar", "123!"));
+        else this.allUsers.add(new Admin("Admin", "admin@foo.bar", "123"));
     }
 
     public ArrayList<AbstractPerson> getAllUsers() {
