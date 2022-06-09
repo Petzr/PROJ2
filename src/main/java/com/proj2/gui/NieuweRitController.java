@@ -1,6 +1,8 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.User;
+import com.proj2.model.vehicles.*;
 import com.proj2.model.vehicles.AbstractVehicle;
 import com.proj2.model.vehicles.*;
 import javafx.collections.FXCollections;
@@ -23,26 +25,8 @@ public class NieuweRitController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
 
-    @FXML
-    private TableView<AbstractVehicle> vehiclesTable;
-
-    @FXML
-    private TableColumn<AbstractVehicle, Double> colomnModifier;
-
-    @FXML
-    private TableColumn<AbstractVehicle, String> colomnVehicle;
-
-    ObservableList<AbstractVehicle> list = FXCollections.observableArrayList(
-            new Bike(),
-            new DieselCar(),
-            new ElectricCar(),
-            new GasolineCar(),
-            new Plane(),
-            new PublicTransport()
-    );
-
-    @FXML
-    private TextField numberOfKm;
+    public TableView vehiclesTable;
+    public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
     {
@@ -66,9 +50,26 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colomnModifier.setCellValueFactory(new PropertyValueFactory<AbstractVehicle, Double>("modifier"));
-        colomnVehicle.setCellValueFactory(new PropertyValueFactory<AbstractVehicle, String>("name"));
-//
-        vehiclesTable.setItems(list);
+
+    }
+
+    private void createVehicleTable() {
+        vehiclesTable = new TableView<>();
+        TableColumn<User, String> column1 = new TableColumn<>("Name");
+        TableColumn<User, String> column2 = new TableColumn<>("Modifier");
+
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("modifier"));
+
+        vehiclesTable.getColumns().add(column1);
+        vehiclesTable.getColumns().add(column2);
+
+        vehiclesTable.getItems().add(new Bike());
+        vehiclesTable.getItems().add(new DieselCar());
+        vehiclesTable.getItems().add(new ElectricCar());
+        vehiclesTable.getItems().add(new GasolineCar());
+        vehiclesTable.getItems().add(new Plane());
+        vehiclesTable.getItems().add(new PublicTransport());
+
     }
 }

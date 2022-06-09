@@ -1,17 +1,21 @@
 package com.proj2.gui;
 
+import com.proj2.model.Organization;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
 import com.proj2.service.Logic;
+import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -45,7 +49,21 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     @Override
     public void update(Observable o, Object arg) { createTable(); }
 
-    private void createTable() {
-        ArrayList<AbstractPerson> allUsers = Logic.get_organization().getAllUsers();
+    private void createTable(){
+        Organization temp = new Organization(user);
+
+        leaderboardTable = new TableView();
+        TableColumn<User, String> column1 = new TableColumn<>("Name");
+        TableColumn<User, String> column2 = new TableColumn<>("Points");
+
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("points"));
+
+        leaderboardTable.getColumns().add(column1);
+        leaderboardTable.getColumns().add(column2);
+
+        for (AbstractPerson user : temp.getAllUsers() ) {
+            leaderboardTable.getItems().add(user);
+        }
     }
 }
