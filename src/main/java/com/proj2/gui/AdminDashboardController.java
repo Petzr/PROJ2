@@ -69,6 +69,5 @@ public class AdminDashboardController implements Initializable, IControllerInfo
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         nameUser.setText(user.getName());
-        User user1 = (User) user;
     }
 }

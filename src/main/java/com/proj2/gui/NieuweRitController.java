@@ -32,9 +32,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     public void setUser(AbstractPerson user) {
