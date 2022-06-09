@@ -19,9 +19,7 @@ public class Logic {
         return users;
     }
 
-    public static Organization get_organization() {
-        return _organization;
-    }
+    public static Organization get_organization() { return _organization; }
 }
 
 class AscendingComparator implements Comparator<User> {

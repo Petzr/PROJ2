@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public abstract class AbstractRepository<T extends AbstractEntity> {
-
     private final List<T> EntityCollection = new ArrayList<>();
 
     public void save(T entity) {

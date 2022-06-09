@@ -30,17 +30,9 @@ public class Organization
         return null;
     }
 
-    public void addUser(AbstractPerson user) {
-        this.allUsers.add(user);
-    }
-
-    public void removeUser(AbstractPerson user) {
-        this.allUsers.remove(user);
-    }
-
+    public void addUser(AbstractPerson user) { this.allUsers.add(user); }
+    public void removeUser(AbstractPerson user) { this.allUsers.remove(user); }
+    public void removeUser(String email) { allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
     public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
-
-    public void removeUser(String email) {
-        allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
 
 }

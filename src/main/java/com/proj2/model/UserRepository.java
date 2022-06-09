@@ -5,7 +5,6 @@ import com.proj2.model.abstraction.AbstractRepository;
 
 
 public class UserRepository extends AbstractRepository<AbstractPerson> {
-
     private static UserRepository instance;
 
     public static synchronized UserRepository getInstance() {
