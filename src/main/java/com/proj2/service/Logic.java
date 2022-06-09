@@ -24,6 +24,8 @@ public class Logic {
         _organization.addUser(new Admin("Peter Jansen", "21092036@student.hhs.nl", "123"));
         _organization.addUser(new User("Daner Elias", "21143900@student.hhs.nl", "321"));
         _organization.addUser(new User("Dwayne Balentien", "17124298@student.hhs.nl", "potvis"));
+        _organization.addUser(new User("Bilal Massoudi", "20214995@student.hhs.nl", "123"));
+        _organization.addUser(new User("User", "user@foo.bar", "123"));
 
     }
 }
