@@ -53,8 +53,6 @@ public class DashboardController implements Initializable, IControllerInfo
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameUser.setText(user.getName());
-//        User user1 = (User) user;
-//        user1.setPoints(69);
-//        pointsUser.setText(Integer.toString(user1.getPoints()));
+        pointsUser.setText(Integer.toString(((User) user).getPoints()));
     }
 }

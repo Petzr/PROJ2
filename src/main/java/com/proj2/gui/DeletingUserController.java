@@ -44,7 +44,7 @@ public class DeletingUserController implements Initializable, IControllerInfo
     void deletingUser(ActionEvent event) {
         if (user.comparePassword(passwordAdmintf.getText()))
             if (user instanceof Admin)
-                System.out.println(((Admin) user).removeUser(mailtf.getText()));
+                ((Admin) user).removeUser(mailtf.getText());
     }
 
     @Override
