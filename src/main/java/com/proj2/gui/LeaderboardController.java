@@ -5,7 +5,10 @@ import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
 import com.proj2.service.Logic;
 import com.proj2.model.person.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -24,7 +27,11 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 {
     private AbstractPerson user;
 
-    public TableView leaderboardTable;
+    public TableView<User> leaderboardTable;
+
+    private TableColumn<User, String> usercolomn;
+
+    private TableColumn<User, Integer> pointscolomn;
 
     public void backToDashboard(ActionEvent actionEvent) {
         // dit is nodig om de stage te bepalen
@@ -50,20 +57,29 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     public void update(Observable o, Object arg) { createTable(); }
 
     private void createTable(){
-        Organization temp = new Organization(user);
 
-        leaderboardTable = new TableView();
-        TableColumn<User, String> column1 = new TableColumn<>("Name");
-        TableColumn<User, String> column2 = new TableColumn<>("Points");
+        usercolomn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        pointscolomn.setCellValueFactory(new PropertyValueFactory<>("points"));
 
-        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
-        column2.setCellValueFactory(new PropertyValueFactory<>("points"));
+        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
+        pointscolomn.setSortable(false);
 
-        leaderboardTable.getColumns().add(column1);
-        leaderboardTable.getColumns().add(column2);
+        ObservableList<User> list = getUserList();
+        leaderboardTable.setItems(list);
+        leaderboardTable.getColumns().addAll(usercolomn, pointscolomn);
 
-        for (AbstractPerson user : temp.getAllUsers() ) {
+
+       /* for (AbstractPerson user : temp.getAllUsers() ) {
             leaderboardTable.getItems().add(user);
-        }
+        } */
+    }
+
+    private ObservableList<User> getUserList() {
+        User een = new User("bilal", "email", "123");
+        User twee = new User("Peter", "email", "123");
+
+        ObservableList<User> list = FXCollections.observableArrayList(een, twee);
+        return list;
+
     }
 }
