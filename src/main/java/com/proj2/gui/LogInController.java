@@ -25,8 +25,9 @@ public class LogInController implements Initializable, IControllerInfo
     {
         AbstractPerson login = AuthorizationProvider.login(emailField.getText(), passwordField.getText());
         if (login != null) {
-            Scene scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
+            Scene scene;
             if (login instanceof Admin) scene = IControllerInfo.createNewScene(login, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
+            else scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setUserData(login);

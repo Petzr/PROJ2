@@ -28,8 +28,9 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
+        Scene scene;
         if (user instanceof Admin) scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
+        else scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
