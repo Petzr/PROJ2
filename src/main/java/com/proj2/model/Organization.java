@@ -23,7 +23,10 @@ public class Organization
     }
 
     public AbstractPerson getUser(String email, String password) {
-        for(AbstractPerson user : allUsers) if(user.getEmail().equalsIgnoreCase(email)) if(user.comparePassword(password)) return user;
+        for(AbstractPerson user : allUsers)
+            if(user.getEmail().equalsIgnoreCase(email))
+                if(user.comparePassword(password))
+                    return user;
         return null;
     }
 
@@ -35,6 +38,9 @@ public class Organization
         this.allUsers.remove(user);
     }
 
+    public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
+
     public void removeUser(String email) {
         allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
+
 }

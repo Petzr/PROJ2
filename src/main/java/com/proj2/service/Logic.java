@@ -13,14 +13,14 @@ import java.util.Comparator;
 public class Logic {
     private static final Organization _organization = new Organization();
 
-    public static double calculatePoints(AbstractVehicle vehicle, int km) {
-        return vehicle.getModifier() * km;
-    }
-
     public static ArrayList<User> sortUsersByPoints(ArrayList<User> users, boolean ascending) {
         if (ascending) users.sort(new AscendingComparator());
         else users.sort(new DescendingComparator());
         return users;
+    }
+
+    public static Organization get_organization() {
+        return _organization;
     }
 }
 
