@@ -1,6 +1,7 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -9,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -28,26 +30,19 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     @Override
-    public void setUser(AbstractPerson user) {
-        this.user = user;
-    }
+    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        createTable();
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) { createTable(); }
 
     @Override
-    public void update(Observable o, Object arg) {
-        createTable();
-    }
+    public void update(Observable o, Object arg) { createTable(); }
 
     private void createTable() {
+        ArrayList<AbstractPerson> allUsers = Logic.get_organization().getAllUsers();
     }
 }

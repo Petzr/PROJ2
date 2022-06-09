@@ -1,6 +1,7 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +16,6 @@ import java.util.ResourceBundle;
 
 public class DeletingUserController implements Initializable, IControllerInfo
 {
-
     private AbstractPerson user;
 
     @FXML
@@ -37,21 +37,18 @@ public class DeletingUserController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     @FXML
     void deletingUser(ActionEvent event) {
-
+        if (user.comparePassword(passwordAdmintf.getText()))
+            if (user instanceof Admin)
+                ((Admin) user).removeUser(mailtf.getText());
     }
 
     @Override
-    public void setUser(AbstractPerson user)
-    {
-        this.user = user;
-    }
+    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)

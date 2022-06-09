@@ -1,7 +1,6 @@
 package com.proj2.model.abstraction;
 
 public abstract class AbstractPerson extends AbstractEntity {
-
     //methods relating to Person
     private final String name;
     private final String email;

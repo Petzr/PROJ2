@@ -21,12 +21,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
     private Label nameUser;
 
     @FXML
-    public void logOutButton(ActionEvent actionEvent)
-    {
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.close();
-    }
+    public void logOutButton(ActionEvent actionEvent) { ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close(); }
 
     @FXML
     void nieuweGebruiker(ActionEvent event) {
@@ -38,9 +33,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new RegistrationController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     @FXML
@@ -53,9 +46,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/deleting-user.fxml", new DeletingUserController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     @FXML
@@ -68,16 +59,11 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     @Override
-    public void setUser(AbstractPerson user)
-    {
-        this.user = user;
-    }
+    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
