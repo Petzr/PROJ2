@@ -1,13 +1,10 @@
 package com.proj2.service;
 
 import com.proj2.model.Organization;
-import com.proj2.model.abstraction.AbstractPerson;
-import com.proj2.model.abstraction.AbstractVehicle;
-import com.proj2.model.person.Admin;
+import com.proj2.model.vehicles.AbstractVehicle;
 import com.proj2.model.person.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Logic {

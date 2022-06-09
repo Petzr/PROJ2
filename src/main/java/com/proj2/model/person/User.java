@@ -2,7 +2,7 @@ package com.proj2.model.person;
 
 import com.proj2.model.Travel;
 import com.proj2.model.abstraction.AbstractPerson;
-import com.proj2.model.abstraction.AbstractVehicle;
+import com.proj2.model.vehicles.AbstractVehicle;
 
 import java.util.ArrayList;
 

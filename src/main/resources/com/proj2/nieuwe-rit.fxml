@@ -17,8 +17,8 @@
       </Label>
       <TableView fx:id="vehiclesTable" layoutX="36.0" layoutY="107.0" prefHeight="200.0" prefWidth="216.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Vehicle" />
-          <TableColumn prefWidth="75.0" text="Modifier" />
+          <TableColumn fx:id="colomnVehicle" prefWidth="75.0" text="Vehicle" />
+          <TableColumn fx:id="colomnModifier" prefWidth="75.0" text="Modifier" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
