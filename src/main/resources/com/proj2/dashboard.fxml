@@ -17,7 +17,10 @@
       <Button layoutX="50.0" layoutY="395.0" mnemonicParsing="false" onAction="#nieuweRit" text="New trip" />
       <Button layoutX="179.0" layoutY="395.0" mnemonicParsing="false" onAction="#showLeaderboard" text="Leaderboard" />
       <Button layoutX="121.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutButton" text="Log out" AnchorPane.bottomAnchor="58.4" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="121.4" AnchorPane.topAnchor="466.0" />
-      <Label fx:id="pointsUser" alignment="CENTER" layoutX="92.0" layoutY="239.0" text="&lt; AANTAL PUNTEN &gt;" AnchorPane.topAnchor="280.0" />
+      <Label fx:id="pointsUser" alignment="CENTER" layoutX="92.0" layoutY="239.0" text="&lt; AANTAL PUNTEN &gt;" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="280.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <ImageView fitHeight="195.0" fitWidth="238.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/betabittransparent.png" />
