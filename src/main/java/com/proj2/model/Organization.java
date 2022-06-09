@@ -39,4 +39,8 @@ public class Organization
     }
 
     public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
+
+    public void removeUser(String email) {
+        allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
+
 }
