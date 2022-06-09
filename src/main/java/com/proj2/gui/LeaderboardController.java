@@ -58,15 +58,18 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 
     private void createTable(){
 
+        usercolomn = new TableColumn<>();
+        pointscolomn = new TableColumn<>();
+
         usercolomn.setCellValueFactory(new PropertyValueFactory<>("name"));
         pointscolomn.setCellValueFactory(new PropertyValueFactory<>("points"));
 
-        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
-        pointscolomn.setSortable(false);
+//        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
+//        pointscolomn.setSortable(false);
 
         ObservableList<User> list = getUserList();
         leaderboardTable.setItems(list);
-        leaderboardTable.getColumns().addAll(usercolomn, pointscolomn);
+//        leaderboardTable.getColumns().addAll(usercolomn, pointscolomn);
 
 
        /* for (AbstractPerson user : temp.getAllUsers() ) {
