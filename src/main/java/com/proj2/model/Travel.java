@@ -1,6 +1,6 @@
 package com.proj2.model;
 
-import com.proj2.model.abstraction.AbstractVehicle;
+import com.proj2.model.vehicles.AbstractVehicle;
 
 public class Travel {
     private int points;

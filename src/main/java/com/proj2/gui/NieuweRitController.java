@@ -1,12 +1,19 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.vehicles.AbstractVehicle;
+import com.proj2.model.vehicles.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -16,8 +23,26 @@ public class NieuweRitController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
 
-    public TableView vehiclesTable;
-    public TextField numberOfKm;
+    @FXML
+    private TableView<AbstractVehicle> vehiclesTable;
+
+    @FXML
+    private TableColumn<AbstractVehicle, Double> colomnModifier;
+
+    @FXML
+    private TableColumn<AbstractVehicle, String> colomnVehicle;
+
+    ObservableList<AbstractVehicle> list = FXCollections.observableArrayList(
+            new Bike(),
+            new DieselCar(),
+            new ElectricCar(),
+            new GasolineCar(),
+            new Plane(),
+            new PublicTransport()
+    );
+
+    @FXML
+    private TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
     {
@@ -43,6 +68,9 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        colomnModifier.setCellValueFactory(new PropertyValueFactory<AbstractVehicle, Double>("modifier"));
+        colomnVehicle.setCellValueFactory(new PropertyValueFactory<AbstractVehicle, String>("name"));
+//
+        vehiclesTable.setItems(list);
     }
 }
