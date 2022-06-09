@@ -34,7 +34,7 @@ public class DeletingUserController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -44,7 +44,7 @@ public class DeletingUserController implements Initializable, IControllerInfo
     void deletingUser(ActionEvent event) {
         if (user.comparePassword(passwordAdmintf.getText()))
             if (user instanceof Admin)
-                ((Admin) user).removeUser(mailtf.getText());
+                System.out.println(((Admin) user).removeUser(mailtf.getText()));
     }
 
     @Override

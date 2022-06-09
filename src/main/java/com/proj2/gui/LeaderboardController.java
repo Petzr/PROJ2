@@ -1,6 +1,7 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.Admin;
 import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -28,6 +29,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
+        if (user instanceof Admin) scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);

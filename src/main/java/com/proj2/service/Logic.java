@@ -1,7 +1,7 @@
 package com.proj2.service;
 
 import com.proj2.model.Organization;
-import com.proj2.model.vehicles.AbstractVehicle;
+import com.proj2.model.person.Admin;
 import com.proj2.model.person.User;
 
 import java.util.ArrayList;
@@ -17,6 +17,15 @@ public class Logic {
     }
 
     public static Organization get_organization() { return _organization; }
+
+    public static void seedOrganisation() {
+        _organization.addUser(new Admin("Luca Don", "20096550@student.hhs.nl", "FooBar231!"));
+        _organization.addUser(new Admin("Lance van den Boogaart", "18009395@student.hhs.nl", "FooBar231!"));
+        _organization.addUser(new Admin("Peter Jansen", "21092036@student.hhs.nl", "123"));
+        _organization.addUser(new User("Daner Elias", "21143900@student.hhs.nl", "321"));
+        _organization.addUser(new User("Dwayne Balentien", "17124298@student.hhs.nl", "potvis"));
+
+    }
 }
 
 class AscendingComparator implements Comparator<User> {
