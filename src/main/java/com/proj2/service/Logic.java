@@ -21,7 +21,7 @@ public class Logic {
     public static void seedOrganisation() {
         _organization.addUser(new Admin("Luca Don", "20096550@student.hhs.nl", "FooBar231!"));
         _organization.addUser(new Admin("Lance van den Boogaart", "18009395@student.hhs.nl", "FooBar231!"));
-        _organization.addUser(new Admin("Peter Jansen", "21092036@student.hhs.nl", "123"));
+        _organization.addUser(new Admin("Peter Jansen", "123", "123"));
         _organization.addUser(new User("Daner Elias", "21143900@student.hhs.nl", "321"));
         _organization.addUser(new User("Dwayne Balentien", "17124298@student.hhs.nl", "potvis"));
         _organization.addUser(new User("Bilal Massoudi", "20214995@student.hhs.nl", "123"));

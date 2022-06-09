@@ -1,6 +1,5 @@
 package com.proj2.gui;
 
-import com.proj2.model.Organization;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
 import com.proj2.service.Logic;
@@ -18,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -27,10 +25,11 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 {
     private AbstractPerson user;
 
+    @FXML
     public TableView<User> leaderboardTable;
-
+    @FXML
     private TableColumn<User, String> usercolomn;
-
+    @FXML
     private TableColumn<User, Integer> pointscolomn;
 
     public void backToDashboard(ActionEvent actionEvent) {
@@ -58,30 +57,22 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 
     private void createTable(){
 
-        usercolomn = new TableColumn<>();
-        pointscolomn = new TableColumn<>();
-
-        usercolomn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        pointscolomn.setCellValueFactory(new PropertyValueFactory<>("points"));
+        usercolomn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+        pointscolomn.setCellValueFactory(new PropertyValueFactory<User, Integer>("points"));
 
 //        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
 //        pointscolomn.setSortable(false);
 
-        ObservableList<User> list = getUserList();
-        leaderboardTable.setItems(list);
-//        leaderboardTable.getColumns().addAll(usercolomn, pointscolomn);
+        leaderboardTable.setItems(getUserList());
 
-
-       /* for (AbstractPerson user : temp.getAllUsers() ) {
-            leaderboardTable.getItems().add(user);
-        } */
     }
 
     private ObservableList<User> getUserList() {
-        User een = new User("bilal", "email", "123");
-        User twee = new User("Peter", "email", "123");
+        ObservableList<User> list = FXCollections.observableArrayList();
+        for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) {
+            list.add((User) person);
+        }
 
-        ObservableList<User> list = FXCollections.observableArrayList(een, twee);
         return list;
 
     }
