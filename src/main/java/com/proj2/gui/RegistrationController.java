@@ -53,7 +53,7 @@ public class RegistrationController implements Initializable, IControllerInfo
     @Override
     public void setUser(AbstractPerson user)
     {
-
+        this.user = user;
     }
 
     @Override

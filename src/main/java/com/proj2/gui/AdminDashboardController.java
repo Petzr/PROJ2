@@ -1,6 +1,7 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,12 +76,13 @@ public class AdminDashboardController implements Initializable, IControllerInfo
     @Override
     public void setUser(AbstractPerson user)
     {
-
+        this.user = user;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-
+        nameUser.setText(user.getName());
+        User user1 = (User) user;
     }
 }

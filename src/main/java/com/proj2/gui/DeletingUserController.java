@@ -50,7 +50,7 @@ public class DeletingUserController implements Initializable, IControllerInfo
     @Override
     public void setUser(AbstractPerson user)
     {
-
+        this.user = user;
     }
 
     @Override
