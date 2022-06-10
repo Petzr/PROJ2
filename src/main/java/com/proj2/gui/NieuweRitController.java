@@ -37,6 +37,8 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     public void calculatePoints(ActionEvent actionEvent)
     {
+        AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
+        System.out.println(vehicle);
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
@@ -65,20 +67,14 @@ public class NieuweRitController implements Initializable, IControllerInfo
         colomnVehicle.setCellValueFactory(new PropertyValueFactory<>("name"));
         colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
 
-        vehiclesTable.setItems(getVehicleList());
+        vehiclesTable.setItems(FXCollections.observableArrayList(
+                new Bike(),
+                new DieselCar(),
+                new ElectricCar(),
+                new GasolineCar(),
+                new Plane(),
+                new PublicTransport()
+        ));
     }
 
-    private ObservableList<AbstractVehicle> getVehicleList() {
-        ObservableList<AbstractVehicle> list = FXCollections.observableArrayList();
-
-        list.add(new Bike());
-        list.add(new DieselCar());
-        list.add(new ElectricCar());
-        list.add(new GasolineCar());
-        list.add(new Plane());
-        list.add(new PublicTransport());
-
-        return list;
-
-    }
 }
