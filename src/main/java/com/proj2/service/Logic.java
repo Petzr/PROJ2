@@ -22,7 +22,7 @@ public class Logic {
         _organization.addUser(new Admin("Luca Don", "20096550@student.hhs.nl", "FooBar231!"));
         _organization.addUser(new Admin("Lance van den Boogaart", "18009395@student.hhs.nl", "FooBar231!"));
         _organization.addUser(new Admin("Peter Jansen", "123", "123"));
-        User peter = new User("Peter Jansen", "123", "123");
+        User peter = new User("Peter Jansen", "peter", "123");
         peter.setPoints(69);
         _organization.addUser(peter);
         _organization.addUser(new User("Daner Elias", "21143900@student.hhs.nl", "321"));

@@ -60,8 +60,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         usercolomn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         pointscolomn.setCellValueFactory(new PropertyValueFactory<User, Integer>("points"));
 
-//        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
-//        pointscolomn.setSortable(false);
+        pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
 
         leaderboardTable.setItems(getUserList());
 

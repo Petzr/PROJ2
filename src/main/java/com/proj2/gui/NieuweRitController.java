@@ -5,6 +5,7 @@ import com.proj2.model.person.User;
 import com.proj2.model.vehicles.*;
 import com.proj2.model.vehicles.AbstractVehicle;
 import com.proj2.model.vehicles.*;
+import com.proj2.service.Logic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +26,13 @@ public class NieuweRitController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
 
-    public TableView vehiclesTable;
+    @FXML
+    public TableView<AbstractVehicle> vehiclesTable;
+    @FXML
+    public TableColumn<AbstractVehicle, Class> colomnVehicle;
+    @FXML
+    public TableColumn<AbstractVehicle, Integer> colomnModifier;
+
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
@@ -50,26 +57,28 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        createVehicleTable();
     }
 
     private void createVehicleTable() {
-        vehiclesTable = new TableView<>();
-        TableColumn<User, String> column1 = new TableColumn<>("Name");
-        TableColumn<User, String> column2 = new TableColumn<>("Modifier");
 
-        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
-        column2.setCellValueFactory(new PropertyValueFactory<>("modifier"));
+        colomnVehicle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
 
-        vehiclesTable.getColumns().add(column1);
-        vehiclesTable.getColumns().add(column2);
+        vehiclesTable.setItems(getVehicleList());
+    }
 
-        vehiclesTable.getItems().add(new Bike());
-        vehiclesTable.getItems().add(new DieselCar());
-        vehiclesTable.getItems().add(new ElectricCar());
-        vehiclesTable.getItems().add(new GasolineCar());
-        vehiclesTable.getItems().add(new Plane());
-        vehiclesTable.getItems().add(new PublicTransport());
+    private ObservableList<AbstractVehicle> getVehicleList() {
+        ObservableList<AbstractVehicle> list = FXCollections.observableArrayList();
+
+        list.add(new Bike());
+        list.add(new DieselCar());
+        list.add(new ElectricCar());
+        list.add(new GasolineCar());
+        list.add(new Plane());
+        list.add(new PublicTransport());
+
+        return list;
 
     }
 }
