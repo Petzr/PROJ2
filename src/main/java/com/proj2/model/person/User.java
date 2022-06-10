@@ -15,6 +15,7 @@ public class User extends AbstractPerson {
     public User(String name, String email, String password) {
         super(name, email, password);
         this.points = 0;
+        this.travels = new ArrayList<>();
     }
 
     public Integer getPoints() {
@@ -24,7 +25,6 @@ public class User extends AbstractPerson {
     public void setPoints(Integer points) {
         this.points = points;
     }
-    public void addPoints(){}
 
     public void newTravel(AbstractVehicle vehicle, int aantalKM) {
         Travel travel = new Travel(vehicle, aantalKM);

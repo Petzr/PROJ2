@@ -37,8 +37,12 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     public void calculatePoints(ActionEvent actionEvent)
     {
-        AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
-        System.out.println(vehicle);
+        if (user instanceof User)
+            if (isNumeric(numberOfKm.getText()))
+                ((User) user).newTravel(
+                        vehiclesTable.getSelectionModel().getSelectedItem(),
+                        Integer.parseInt(numberOfKm.getText()));
+        backToDashboard(actionEvent);
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
@@ -77,4 +81,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
         ));
     }
 
+    private static boolean isNumeric(String str){
+        return str != null && str.matches("[0-9.]+");
+    }
 }
