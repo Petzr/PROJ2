@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class User extends AbstractPerson {
 
-    private ArrayList<Travel> travels;
+    private final ArrayList<Travel> travels;
     private Integer points;
 
 

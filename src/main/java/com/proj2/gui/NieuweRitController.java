@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -32,17 +33,19 @@ public class NieuweRitController implements Initializable, IControllerInfo
     public TableColumn<AbstractVehicle, Class> colomnVehicle;
     @FXML
     public TableColumn<AbstractVehicle, Integer> colomnModifier;
-
+    public Label errorTxt;
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
     {
-        if (user instanceof User)
-            if (isNumeric(numberOfKm.getText()))
+        if (user instanceof User) {
+            if (isNumeric(numberOfKm.getText())) {
                 ((User) user).newTravel(
                         vehiclesTable.getSelectionModel().getSelectedItem(),
                         Integer.parseInt(numberOfKm.getText()));
-        backToDashboard(actionEvent);
+                backToDashboard(actionEvent);
+            } else errorTxt.setText("Incorrect number of kilometers.");
+        }
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
