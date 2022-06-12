@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -31,6 +32,9 @@ public class RegistrationController implements Initializable, IControllerInfo
     private PasswordField passwordtf2;
 
     @FXML
+    private Label regLabel;
+
+    @FXML
     void backToDashboard(ActionEvent event) {
         // dit is nodig om de stage te bepalen
         Node node = (Node) event.getSource();
@@ -46,8 +50,10 @@ public class RegistrationController implements Initializable, IControllerInfo
     @FXML
     void registerUser(ActionEvent event) {
         if (user instanceof Admin)
-            if (passwordtf.getText().equals(passwordtf2.getText()))
+            if (passwordtf.getText().equals(passwordtf2.getText())) {
                 ((Admin) user).addUser(nametf.getText(), mailtf.getText(), passwordtf.getText());
+                regLabel.setText("Registration succesfull.");
+            } else regLabel.setText("Something went wrong.");
     }
 
     @Override

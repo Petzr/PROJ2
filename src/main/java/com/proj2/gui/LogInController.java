@@ -9,6 +9,7 @@ import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,6 +21,7 @@ public class LogInController implements Initializable, IControllerInfo
 {
     public TextField emailField;
     public PasswordField passwordField;
+    public Label logintxt;
 
     public void logInButtonClick(ActionEvent actionEvent)
     {
@@ -32,7 +34,8 @@ public class LogInController implements Initializable, IControllerInfo
             stage.setScene(scene);
             stage.setUserData(login);
             stage.show();
-        }
+            logintxt.setText("");
+        } else logintxt.setText("Mail and/or password incorrect.");
     }
 
     @Override

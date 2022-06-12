@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -28,6 +29,9 @@ public class DeletingUserController implements Initializable, IControllerInfo
     private PasswordField passwordUsertf;
 
     @FXML
+    private Label delLabel;
+
+    @FXML
     public void backToDashboard(ActionEvent actionEvent) {
         // dit is nodig om de stage te bepalen
         Node node = (Node) actionEvent.getSource();
@@ -43,8 +47,10 @@ public class DeletingUserController implements Initializable, IControllerInfo
     @FXML
     void deletingUser(ActionEvent event) {
         if (user.comparePassword(passwordAdmintf.getText()))
-            if (user instanceof Admin)
+            if (user instanceof Admin) {
                 ((Admin) user).removeUser(mailtf.getText());
+                delLabel.setText("User deleted.");
+            }
     }
 
     @Override
