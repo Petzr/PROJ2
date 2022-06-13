@@ -12,14 +12,19 @@ public class Travel {
 
     public Travel(AbstractVehicle vehicle, int aantalKM) {
         // formule voor het berekenen van punten
-        points = (int) (aantalKM * vehicle.getModifier());
-
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         this.date = formatter.format(calendar.getTime());
+
+        points = (int) (aantalKM * vehicle.getModifier());
     }
 
     public int getPoints() {
         return points;
+    }
+
+    public String getDate()
+    {
+        return date;
     }
 }
