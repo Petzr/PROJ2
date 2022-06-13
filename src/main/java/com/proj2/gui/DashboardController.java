@@ -46,7 +46,10 @@ public class DashboardController implements Initializable, IControllerInfo
         if (scene != null) stage.setScene(scene);
     }
 
-    public void logOutButton(ActionEvent actionEvent) { ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close(); }
+    public void logOutButton(ActionEvent actionEvent) {
+        user.setLoggedIn(false);
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+    }
 
     public void setUser(AbstractPerson user) { this.user = user; }
 

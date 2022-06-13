@@ -2,7 +2,6 @@ package com.proj2.model;
 
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
-import com.proj2.model.person.User;
 
 import java.util.ArrayList;
 
@@ -27,11 +26,14 @@ public class Organization
         return allUsers;
     }
 
-    public AbstractPerson getUser(String email, String password) {
+    public AbstractPerson checkLogin(String email, String password) {
         for(AbstractPerson user : this.allUsers)
-            if(user.getEmail().equalsIgnoreCase(email))
-                if(user.comparePassword(password))
-                    return user;
+            if(!user.isLoggedIn())
+                if(user.getEmail().equalsIgnoreCase(email))
+                    if(user.comparePassword(password)) {
+                        user.setLoggedIn(true);
+                        return user;
+                    }
         return null;
     }
 

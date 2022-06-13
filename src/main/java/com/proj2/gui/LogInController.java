@@ -37,7 +37,7 @@ public class LogInController implements Initializable, IControllerInfo
             logintxt.setText("");
             emailField.setText("");
             passwordField.setText("");
-        } else logintxt.setText("Mail and/or password incorrect.");
+        } else logintxt.setText("Mail and/or password incorrect or user already logged in");
     }
 
     @Override

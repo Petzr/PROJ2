@@ -21,7 +21,10 @@ public class AdminDashboardController implements Initializable, IControllerInfo
     private Label nameUser;
 
     @FXML
-    public void logOutButton(ActionEvent actionEvent) { ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close(); }
+    public void logOutButton(ActionEvent actionEvent) {
+        user.setLoggedIn(false);
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+    }
 
     @FXML
     void nieuweGebruiker(ActionEvent event) {
