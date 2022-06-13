@@ -38,14 +38,18 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     public void calculatePoints(ActionEvent actionEvent)
     {
-        if (user instanceof User) {
-            if (isNumeric(numberOfKm.getText())) {
-                ((User) user).newTravel(
-                        vehiclesTable.getSelectionModel().getSelectedItem(),
+        AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
+
+        if (vehicle != null)
+            if (user instanceof User) {
+                if (isNumeric(numberOfKm.getText())) {
+                    ((User) user).newTravel(
+                        vehicle,
                         Integer.parseInt(numberOfKm.getText()));
-                backToDashboard(actionEvent);
-            } else errorTxt.setText("Incorrect number of kilometers.");
-        }
+                    backToDashboard(actionEvent);
+                } else errorTxt.setText("Incorrect number of kilometers.");
+            }
+        else errorTxt.setText("Please select a vehicle");
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
