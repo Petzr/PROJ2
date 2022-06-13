@@ -30,6 +30,12 @@ public class User extends AbstractPerson {
         Travel travel = new Travel(vehicle, aantalKM);
         points += travel.getPoints();
         travels.add(travel);
+        updateObservers();
+    }
+
+    private void updateObservers() {
+        setChanged();
+        notifyObservers();
     }
 
 }
