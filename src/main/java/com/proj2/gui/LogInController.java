@@ -34,7 +34,7 @@ public class LogInController implements Initializable, IControllerInfo
             if (login instanceof Admin) scene = IControllerInfo.createNewScene(login, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
             else scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
             Stage stage = new Stage();
-            stage.setTitle("Dashboard of: " + login.getName());
+            stage.setTitle(login.getName());
             stage.getIcons().add(new Image("logo.png"));
             stage.setOnCloseRequest(s -> login.setLoggedIn(false));
             stage.setScene(scene);
