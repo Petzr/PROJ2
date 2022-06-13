@@ -33,7 +33,8 @@ public class NieuweRitController implements Initializable, IControllerInfo
     public TableColumn<AbstractVehicle, Class> colomnVehicle;
     @FXML
     public TableColumn<AbstractVehicle, Integer> colomnModifier;
-    public Label errorTxt;
+    @FXML
+    private Label errorMessage;
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
@@ -44,7 +45,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
                         vehiclesTable.getSelectionModel().getSelectedItem(),
                         Integer.parseInt(numberOfKm.getText()));
                 backToDashboard(actionEvent);
-            } else errorTxt.setText("Incorrect number of kilometers.");
+            } else errorMessage.setText("Incorrect number of kilometers.");
         }
     }
 
