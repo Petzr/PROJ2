@@ -82,8 +82,6 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
         {
             list.add(travel);
         }
-
         return list;
-
     }
 }
