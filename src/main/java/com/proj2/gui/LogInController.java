@@ -35,6 +35,8 @@ public class LogInController implements Initializable, IControllerInfo
             stage.setUserData(login);
             stage.show();
             logintxt.setText("");
+            emailField.setText("");
+            passwordField.setText("");
         } else logintxt.setText("Mail and/or password incorrect.");
     }
 

@@ -1,5 +1,7 @@
 package com.proj2.model.abstraction;
 
+import com.proj2.service.PasswordHash;
+
 public abstract class AbstractPerson extends AbstractEntity {
     //methods relating to Person
     private final String name;
@@ -16,6 +18,8 @@ public abstract class AbstractPerson extends AbstractEntity {
         return email;
     }
     public boolean comparePassword(String password){
-        return this.password.equals(password);
+        try {
+            return PasswordHash.validatePassword(password, this.password);
+        } catch (Exception e) { return false; }
     }
 }

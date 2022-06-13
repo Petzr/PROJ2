@@ -14,9 +14,11 @@ public class AuthorizationProvider {
     }
 
     public static boolean register(AbstractPerson loggedIn, String name, String email, String password) {
-        if (Logic.get_organization().userExists(loggedIn))
-            if (loggedIn instanceof Admin)
-                return ((Admin) loggedIn).addUser(name, email, password);
+        try {
+            if (Logic.get_organization().userExists(loggedIn))
+                if (loggedIn instanceof Admin)
+                    return ((Admin) loggedIn).addUser(name, email, PasswordHash.createHash(password));
+        } catch (Exception e) { return false; }
         return false;
     }
 }
