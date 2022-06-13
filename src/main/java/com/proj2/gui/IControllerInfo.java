@@ -23,8 +23,8 @@ public interface IControllerInfo {
 
         } catch (IOException e) {
             System.out.println("FOUT");
-            return null;
-//            throw new RuntimeException(e);
+//            return null;
+            throw new RuntimeException(e);
         }
     }
 }

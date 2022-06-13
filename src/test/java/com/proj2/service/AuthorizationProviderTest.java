@@ -41,7 +41,7 @@ class AuthorizationProviderTest {
     void register() {
         // Test with non existing logged in user. Returns False
         Assertions.assertFalse(AuthorizationProvider.register(
-                new Admin("Foo Bar", "admin@foo.bar", "password", Logic.get_organization()),
+                new Admin("Foo Bar", "admintest@foo.bar", "password"),
                 "Foo Bar", "user@foo.bar", "password"));
 
         // Seeding fake admin to organisation
@@ -52,7 +52,7 @@ class AuthorizationProviderTest {
         Assertions.assertFalse(AuthorizationProvider.register(user, "Foo Bar", "user@foo.bar", "password"));
 
         // Seeding admin to organisation
-        AbstractPerson admin = new Admin("Foo Bar", "admin@foo.bar", "password", Logic.get_organization());
+        AbstractPerson admin = new Admin("Foo Bar", "admintest@foo.bar", "password");
         Logic.get_organization().addUser(admin);
 
         // Test successfully adding a user. Returns True

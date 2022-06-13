@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="47.0" layoutY="43.0" text="Leaderboard">
          <font>
@@ -13,8 +13,8 @@
       </Label>
       <TableView fx:id="leaderboardTable" layoutY="101.0" prefHeight="450.0" prefWidth="300.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="User" />
-          <TableColumn prefWidth="75.0" text="Points" />
+          <TableColumn fx:id="usercolomn" prefWidth="75.0" text="User" />
+          <TableColumn fx:id="pointscolomn" prefWidth="75.0" text="Points" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

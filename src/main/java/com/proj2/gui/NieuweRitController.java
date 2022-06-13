@@ -1,12 +1,23 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import com.proj2.model.person.User;
+import com.proj2.model.vehicles.*;
+import com.proj2.model.vehicles.AbstractVehicle;
+import com.proj2.model.vehicles.*;
+import com.proj2.service.Logic;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -16,11 +27,25 @@ public class NieuweRitController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
 
-    public TableView vehiclesTable;
+    @FXML
+    public TableView<AbstractVehicle> vehiclesTable;
+    @FXML
+    public TableColumn<AbstractVehicle, Class> colomnVehicle;
+    @FXML
+    public TableColumn<AbstractVehicle, Integer> colomnModifier;
+    public Label errorTxt;
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
     {
+        if (user instanceof User) {
+            if (isNumeric(numberOfKm.getText())) {
+                ((User) user).newTravel(
+                        vehiclesTable.getSelectionModel().getSelectedItem(),
+                        Integer.parseInt(numberOfKm.getText()));
+                backToDashboard(actionEvent);
+            } else errorTxt.setText("Incorrect number of kilometers.");
+        }
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
@@ -32,9 +57,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
     public void setUser(AbstractPerson user) {
@@ -43,6 +66,25 @@ public class NieuweRitController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        createVehicleTable();
+    }
 
+    private void createVehicleTable() {
+
+        colomnVehicle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
+
+        vehiclesTable.setItems(FXCollections.observableArrayList(
+                new Bike(),
+                new DieselCar(),
+                new ElectricCar(),
+                new GasolineCar(),
+                new Plane(),
+                new PublicTransport()
+        ));
+    }
+
+    private static boolean isNumeric(String str){
+        return str != null && str.matches("[0-9.]+");
     }
 }

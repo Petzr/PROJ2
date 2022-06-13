@@ -9,6 +9,7 @@ import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,17 +21,23 @@ public class LogInController implements Initializable, IControllerInfo
 {
     public TextField emailField;
     public PasswordField passwordField;
+    public Label logintxt;
 
     public void logInButtonClick(ActionEvent actionEvent)
     {
         AbstractPerson login = AuthorizationProvider.login(emailField.getText(), passwordField.getText());
         if (login != null) {
-            Scene scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
+            Scene scene;
+            if (login instanceof Admin) scene = IControllerInfo.createNewScene(login, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
+            else scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setUserData(login);
             stage.show();
-        }
+            logintxt.setText("");
+            emailField.setText("");
+            passwordField.setText("");
+        } else logintxt.setText("Mail and/or password incorrect or user already logged in");
     }
 
     @Override

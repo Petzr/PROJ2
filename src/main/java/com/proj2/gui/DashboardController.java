@@ -17,10 +17,8 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable, IControllerInfo
 {
     private AbstractPerson user;
-
     public Label nameUser;
     public Label pointsUser;
-
 
     public void nieuweRit(ActionEvent actionEvent)
     {
@@ -32,10 +30,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
-
+        if (scene != null) stage.setScene(scene);
     }
 
     public void showLeaderboard(ActionEvent actionEvent)
@@ -48,27 +43,19 @@ public class DashboardController implements Initializable, IControllerInfo
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
 
         // spreekt voorzich denk...
-        if (scene != null) {
-            stage.setScene(scene);
-        }
+        if (scene != null) stage.setScene(scene);
     }
 
-    public void logOutButton(ActionEvent actionEvent)
-    {
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.close();
+    public void logOutButton(ActionEvent actionEvent) {
+        user.setLoggedIn(false);
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
-    public void setUser(AbstractPerson user) {
-        this.user = user;
-    }
+    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameUser.setText(user.getName());
-        User user1 = (User) user;
-        user1.setPoints(69);
-        pointsUser.setText(Integer.toString(user1.getPoints()));
+        pointsUser.setText(Integer.toString(((User) user).getPoints()));
     }
 }
