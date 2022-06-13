@@ -26,5 +26,6 @@
             <Image url="@../../images/betabittransparent.png" />
          </image>
       </ImageView>
+      <Button layoutX="50.0" layoutY="355.0" mnemonicParsing="false" onAction="#toHistory" text="Trip History" />
    </children>
 </AnchorPane>

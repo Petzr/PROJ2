@@ -3,6 +3,7 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -45,6 +46,21 @@ public class DashboardController implements Initializable, IControllerInfo
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
     }
+
+    @FXML
+    void toHistory(ActionEvent actionEvent) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/trip-history.fxml", new TripHistoryController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
+
 
     public void logOutButton(ActionEvent actionEvent) {
         user.setLoggedIn(false);

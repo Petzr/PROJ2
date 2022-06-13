@@ -38,4 +38,8 @@ public class User extends AbstractPerson {
         notifyObservers();
     }
 
+    public ArrayList<Travel> getTravels()
+    {
+        return travels;
+    }
 }
