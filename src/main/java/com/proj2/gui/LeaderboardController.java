@@ -51,16 +51,14 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (user instanceof User) {
-            user.addObserver(this);
-        }
+        Logic.get_organization().addObserver(this);
         createTable();
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update"+ this);
-        createTable();
+        System.out.println("update leaderboard " + user.getName());
+        leaderboardTable.refresh();
     }
 
     private void createTable(){

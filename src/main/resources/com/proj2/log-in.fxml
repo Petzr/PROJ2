@@ -20,6 +20,9 @@
       <Label text="Password" />
       <PasswordField fx:id="passwordField" onAction="#logInButtonClick" />
       <Button mnemonicParsing="false" onAction="#logInButtonClick" text="Log In" />
-      <Label fx:id="logintxt" textFill="RED" />
+      <Label fx:id="logintxt" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
    </children>
 </VBox>

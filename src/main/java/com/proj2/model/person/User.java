@@ -2,7 +2,8 @@ package com.proj2.model.person;
 
 import com.proj2.model.Travel;
 import com.proj2.model.abstraction.AbstractPerson;
-import com.proj2.model.vehicles.AbstractVehicle;
+import com.proj2.model.abstraction.AbstractVehicle;
+import com.proj2.service.Logic;
 
 import java.util.ArrayList;
 
@@ -30,12 +31,11 @@ public class User extends AbstractPerson {
         Travel travel = new Travel(vehicle, aantalKM);
         points += travel.getPoints();
         travels.add(travel);
-        updateObservers();
+        Logic.get_organization().updateObservers();
     }
 
-    private void updateObservers() {
-        setChanged();
-        notifyObservers();
+    public ArrayList<Travel> getTravels()
+    {
+        return travels;
     }
-
 }

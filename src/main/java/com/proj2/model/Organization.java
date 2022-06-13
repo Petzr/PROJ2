@@ -4,8 +4,9 @@ import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Organization
+public class Organization extends Observable
 {
     private final ArrayList<AbstractPerson> allUsers;
 
@@ -42,4 +43,9 @@ public class Organization
     public void removeUser(String email) { this.allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
     public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
 
+    public void updateObservers() {
+        setChanged();
+        notifyObservers();
+
+    }
 }
