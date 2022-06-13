@@ -29,7 +29,7 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
     private AbstractPerson user;
 
     @FXML
-    private TableColumn<Travel, SimpleDateFormat> colomnDate;
+    private TableColumn<Travel, String> colomnDate;
 
     @FXML
     private TableColumn<Travel, Integer> colomnPoints;
@@ -59,9 +59,9 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
     }
 
     private void createTable(){
+        colomnDate.setCellValueFactory(new PropertyValueFactory<Travel, String>("date"));
         colomnPoints.setCellValueFactory(new PropertyValueFactory<Travel, Integer>("points"));
-        colomnDate.setCellValueFactory(new PropertyValueFactory<Travel, SimpleDateFormat>("date"));
-        colomnDate.setSortType(TableColumn.SortType.DESCENDING);
+//        colomnDate.setSortType(TableColumn.SortType.DESCENDING);
 
         historyTable.setItems(getUserList());
     }
