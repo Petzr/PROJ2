@@ -50,20 +50,25 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { createTable(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (user instanceof User) {
+            user.addObserver(this);
+        }
+        createTable();
+    }
 
     @Override
-    public void update(Observable o, Object arg) { createTable(); }
+    public void update(Observable o, Object arg) {
+        System.out.println("update"+ this);
+        createTable();
+    }
 
     private void createTable(){
-
         usercolomn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         pointscolomn.setCellValueFactory(new PropertyValueFactory<User, Integer>("points"));
-
         pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
 
         leaderboardTable.setItems(getUserList());
-
     }
 
     private ObservableList<User> getUserList() {
