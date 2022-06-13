@@ -16,9 +16,9 @@
          </font>
       </Label>
       <Label text="Email" />
-      <TextField fx:id="emailField" />
+      <TextField fx:id="emailField" onAction="#logInButtonClick" />
       <Label text="Password" />
-      <PasswordField fx:id="passwordField" />
+      <PasswordField fx:id="passwordField" onAction="#logInButtonClick" />
       <Button mnemonicParsing="false" onAction="#logInButtonClick" text="Log In" />
       <Label fx:id="logintxt" textFill="RED" />
    </children>
