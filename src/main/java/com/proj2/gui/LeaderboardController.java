@@ -74,8 +74,6 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) {
             list.add((User) person);
         }
-
         return list;
-
     }
 }

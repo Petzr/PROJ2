@@ -27,5 +27,6 @@
          </image>
       </ImageView>
       <Button layoutX="50.0" layoutY="355.0" mnemonicParsing="false" onAction="#toHistory" text="Trip History" />
+      <Button layoutX="178.0" layoutY="355.0" mnemonicParsing="false" onAction="#toChangeProfile" text="Change Profile" />
    </children>
 </AnchorPane>
