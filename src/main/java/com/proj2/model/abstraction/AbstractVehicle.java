@@ -1,4 +1,4 @@
-package com.proj2.model.vehicles;
+package com.proj2.model.abstraction;
 
 import com.proj2.model.abstraction.AbstractEntity;
 

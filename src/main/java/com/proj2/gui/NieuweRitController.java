@@ -3,11 +3,8 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import com.proj2.model.vehicles.*;
-import com.proj2.model.vehicles.AbstractVehicle;
-import com.proj2.model.vehicles.*;
-import com.proj2.service.Logic;
+import com.proj2.model.abstraction.AbstractVehicle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -80,7 +77,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
         colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
 
         vehiclesTable.setItems(FXCollections.observableArrayList(
-                new Bike(),
+                new Bicycle(),
                 new DieselCar(),
                 new ElectricCar(),
                 new GasolineCar(),

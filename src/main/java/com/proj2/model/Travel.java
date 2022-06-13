@@ -1,10 +1,9 @@
 package com.proj2.model;
 
-import com.proj2.model.vehicles.AbstractVehicle;
+import com.proj2.model.abstraction.AbstractVehicle;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Travel {
     private int points;

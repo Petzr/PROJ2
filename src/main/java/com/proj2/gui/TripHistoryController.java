@@ -63,7 +63,7 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
         colomnPoints.setCellValueFactory(new PropertyValueFactory<Travel, Integer>("points"));
 //        colomnDate.setSortType(TableColumn.SortType.DESCENDING);
 
-        historyTable.setItems(getUserList());
+        historyTable.setItems(getTravelList());
     }
 
     @Override
@@ -74,7 +74,7 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
         createTable();
     }
 
-    private ObservableList<Travel> getUserList() {
+    private ObservableList<Travel> getTravelList() {
         ObservableList<Travel> list = FXCollections.observableArrayList();
 
         User person = (User) user;

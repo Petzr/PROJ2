@@ -1,6 +1,9 @@
 package com.proj2.model.vehicles;
 
-public class Bicycle extends AbstractVehicle {
+import com.proj2.model.abstraction.AbstractVehicle;
+
+public class Bicycle extends AbstractVehicle
+{
     @Override
     public double getModifier() {
         return 15;
