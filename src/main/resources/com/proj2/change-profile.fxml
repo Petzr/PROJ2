@@ -26,5 +26,6 @@
       <Text layoutX="188.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password" wrappingWidth="93.693359375" AnchorPane.leftAnchor="188.0" />
       <Label fx:id="regLabel" layoutX="75.0" layoutY="375.0" />
       <Text layoutX="192.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Name" />
+      <Label fx:id="changeMessage" alignment="CENTER" layoutX="136.0" layoutY="433.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

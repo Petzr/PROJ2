@@ -2,6 +2,7 @@ package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
+import com.proj2.service.PasswordHash;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,9 @@ public class ChangeDataController implements Initializable, IControllerInfo
 {
 
     private AbstractPerson user;
+
+    @FXML
+    private Label changeMessage;
 
     @FXML
     private TextField newName;
@@ -55,10 +59,12 @@ public class ChangeDataController implements Initializable, IControllerInfo
         if (user.getName().equals(oldName.getText()))
         {
             user.setName(newName.getText());
+            backToDashboard(event);
         }
         if (user.getPassword().equals(oldPassword.getText()))
         {
             user.setPassword(newPassword.getText());
+            backToDashboard(event);
         }
     }
 
