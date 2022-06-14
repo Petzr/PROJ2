@@ -19,14 +19,7 @@ public class Admin extends AbstractPerson {
                 break;
             }
 
-        AbstractPerson user = null;
-        try {
-            user = new User(name, email, PasswordHash.createHash(password));
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeySpecException e) {
-            throw new RuntimeException(e);
-        }
+        AbstractPerson user = new User(name, email, password);
         if (!userExists) Logic.get_organization().addUser(user);
         return Logic.get_organization().getAllUsers().contains(user);
     }

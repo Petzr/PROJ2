@@ -2,6 +2,9 @@ package com.proj2.model.abstraction;
 
 import com.proj2.service.PasswordHash;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public abstract class AbstractPerson extends AbstractEntity {
     //methods relating to Person
     private final String name;
@@ -12,7 +15,13 @@ public abstract class AbstractPerson extends AbstractEntity {
     public AbstractPerson(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        try {
+            this.password = PasswordHash.createHash(password);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
         this.loggedIn = false;
     }
     public String getName() { return name; }
