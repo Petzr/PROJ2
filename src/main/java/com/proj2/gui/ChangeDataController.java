@@ -55,16 +55,15 @@ public class ChangeDataController implements Initializable, IControllerInfo
     }
 
     @FXML
-    void changeData(ActionEvent event) {
-        if (user.getName().equals(oldName.getText()))
+    void changeData(ActionEvent event)
+    {
+        if (user.getName().equals(oldName.getText()) && user.comparePassword(oldPassword.getText()))
         {
             user.setName(newName.getText());
-            backToDashboard(event);
-        }
-        if (user.getPassword().equals(oldPassword.getText()))
-        {
             user.setPassword(newPassword.getText());
             backToDashboard(event);
+        } else {
+            changeMessage.setText("De oude wachtwoord of naam klopt niet.");
         }
     }
 
