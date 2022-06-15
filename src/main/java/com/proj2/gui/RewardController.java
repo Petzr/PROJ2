@@ -35,6 +35,9 @@ public class RewardController implements Initializable, IControllerInfo, Observe
     private TableView<Reward> rewardsTable;
 
     @FXML
+    private Label errorMessage;
+
+    @FXML
     void backToDashboard(ActionEvent event) {
         // dit is nodig om de stage te bepalen
         Node node = (Node) event.getSource();
@@ -53,7 +56,7 @@ public class RewardController implements Initializable, IControllerInfo, Observe
         if (reward != null) {
             ((User) user).removeReward(reward);
             backToDashboard(actionEvent);
-        } //else errorMessage.setText("Please select a reward before collecting it.");
+        } else errorMessage.setText("Please select a reward before collecting it.");
     }
 
     @Override

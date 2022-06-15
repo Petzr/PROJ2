@@ -39,5 +39,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Label fx:id="errorMessage" alignment="CENTER" layoutX="136.0" layoutY="118.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>
