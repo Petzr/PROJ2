@@ -23,10 +23,11 @@
          </font></Label>
       <ImageView fitHeight="195.0" fitWidth="238.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/betabittransparent.png" />
+            <Image url="@../../betabittransparent.png" />
          </image>
       </ImageView>
       <Button layoutX="50.0" layoutY="355.0" mnemonicParsing="false" onAction="#toHistory" text="Trip History" AnchorPane.leftAnchor="50.0" />
       <Button layoutX="53.0" layoutY="466.0" mnemonicParsing="false" onAction="#toChangeProfile" text="Change Profile" AnchorPane.leftAnchor="50.0" />
+      <Button layoutX="179.0" layoutY="355.0" mnemonicParsing="false" onAction="#toRewards" text="Rewards" />
    </children>
 </AnchorPane>
