@@ -16,13 +16,9 @@ public abstract class AbstractPerson extends AbstractEntity {
     public AbstractPerson(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        try
-        {
+        try {
             this.password = PasswordHash.createHash(password);
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e)
-        {
-            throw new RuntimeException(e);
-        }
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) { throw new RuntimeException(e); }
         this.loggedIn = false;
     }
     public String getName() { return name; }
@@ -31,32 +27,25 @@ public abstract class AbstractPerson extends AbstractEntity {
     }
     public boolean isLoggedIn() { return loggedIn; }
     public void setLoggedIn(boolean loggedIn) { this.loggedIn = loggedIn; }
-
     public void setName(String name)
     {
         this.name = name;
     }
-
     public String getPassword()
     {
         return password;
     }
-
     public void setPassword(String password)
     {
-        try
-        {
+        try {
             this.password = PasswordHash.createHash(password);
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e)
-        {
-            throw new RuntimeException(e);
-        }
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) { throw new RuntimeException(e); }
     }
 
     public boolean comparePassword(String password){
         try {
             return PasswordHash.validatePassword(password, this.password);
-        } catch (Exception e) { return false; }
+        } catch (Exception e) { throw new RuntimeException(e); }
     }
 
     public boolean removeReward(Reward reward) {

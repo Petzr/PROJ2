@@ -32,10 +32,10 @@ public class Organization extends Observable
 
     public AbstractPerson checkLogin(String email, String password) {
         for(AbstractPerson user : this.allUsers)
-            if(!user.isLoggedIn ())
-                if (user.getEmail ().equalsIgnoreCase(email))
+            if(!user.isLoggedIn())
+                if (user.getEmail().equalsIgnoreCase(email))
                     if (user.comparePassword(password)) {
-                        user.setLoggedIn (true);
+                        user.setLoggedIn(true);
                         return user;
                     }
         return null;

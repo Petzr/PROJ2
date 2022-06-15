@@ -18,24 +18,17 @@ import java.util.ResourceBundle;
 
 public class ChangeDataController implements Initializable, IControllerInfo
 {
-
     private AbstractPerson user;
-
     @FXML
     private Label changeMessage;
-
     @FXML
     private TextField newName;
-
     @FXML
     private PasswordField newPassword;
-
     @FXML
     private TextField oldName;
-
     @FXML
     private PasswordField oldPassword;
-
     @FXML
     private Label regLabel;
 
