@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -31,6 +32,12 @@ public class ChangeDataController implements Initializable, IControllerInfo
     private Label regLabel;
 
     @FXML
+    private TextField pictureTextfield;
+
+    @FXML
+    private ImageView profilePicture;
+
+    @FXML
     void backToDashboard(ActionEvent event) {
         // dit is nodig om de stage te bepalen
         Node node = (Node) event.getSource();
@@ -43,6 +50,11 @@ public class ChangeDataController implements Initializable, IControllerInfo
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
+    }
+
+    public void newProfilePicture()
+    {
+
     }
 
     @FXML
@@ -65,7 +77,9 @@ public class ChangeDataController implements Initializable, IControllerInfo
     }
 
     @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
+    public void setUser(AbstractPerson user) {
+        this.user = user;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
