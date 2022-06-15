@@ -24,7 +24,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="90.0" layoutY="147.0" mnemonicParsing="false" onAction="#addReward" prefWidth="138.0" text="Add reward" />
+      <Button layoutX="90.0" layoutY="146.0" mnemonicParsing="false" onAction="#addReward" prefWidth="138.0" text="Add reward" />
       <Button layoutY="1.0" mnemonicParsing="false" onAction="#backToDashboard" text="&lt;">
          <font>
             <Font size="10.0" />
@@ -33,5 +33,6 @@
       <Button layoutX="90.0" layoutY="179.0" mnemonicParsing="false" onAction="#deleteReward" prefWidth="138.0" text="Delete reward" />
       <TextField fx:id="rewardTextfield" layoutX="40.0" layoutY="104.0" prefHeight="25.0" prefWidth="100.0" promptText="Name reward" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="90.0" />
       <TextField fx:id="pointsTextfield" layoutX="229.0" layoutY="104.0" prefHeight="25.0" prefWidth="49.0" promptText="Points" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="20.0" />
+      <Label fx:id="errorMessage" alignment="CENTER" layoutX="136.0" layoutY="74.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

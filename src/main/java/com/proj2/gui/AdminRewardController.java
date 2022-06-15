@@ -42,6 +42,9 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
     private TextField rewardTextfield;
 
     @FXML
+    private Label errorMessage;
+
+    @FXML
     void backToDashboard(ActionEvent event) {
         // dit is nodig om de stage te bepalen
         Node node = (Node) event.getSource();
