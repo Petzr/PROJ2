@@ -26,8 +26,6 @@ public class ChangeDataController implements Initializable, IControllerInfo
     @FXML
     private PasswordField newPassword;
     @FXML
-    private TextField oldName;
-    @FXML
     private PasswordField oldPassword;
     @FXML
     private Label regLabel;
