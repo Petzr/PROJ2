@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -33,6 +34,12 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
     private TableColumn<Reward, String> colomnItems;
     @FXML
     private TableView<Reward> rewardsTable;
+
+    @FXML
+    private TextField pointsTextfield;
+
+    @FXML
+    private TextField rewardTextfield;
 
     @FXML
     void backToDashboard(ActionEvent event) {

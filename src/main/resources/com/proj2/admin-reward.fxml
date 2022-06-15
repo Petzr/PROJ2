@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -16,19 +17,21 @@
       </Label>
       <TableView id="vehiclesTable" fx:id="rewardsTable" layoutX="1.0" layoutY="229.0" prefHeight="321.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="220.0">
         <columns>
-          <TableColumn fx:id="colomnItems" prefWidth="203.0" text="Item" />
-          <TableColumn fx:id="colomnCost" prefWidth="95.0" text="Cost" />
+          <TableColumn fx:id="colomnItems" prefWidth="234.0" text="Reward" />
+          <TableColumn fx:id="colomnCost" prefWidth="64.0" text="Cost" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="81.0" layoutY="118.0" mnemonicParsing="false" onAction="#addReward" prefWidth="138.0" text="Add reward" />
+      <Button layoutX="90.0" layoutY="147.0" mnemonicParsing="false" onAction="#addReward" prefWidth="138.0" text="Add reward" />
       <Button layoutY="1.0" mnemonicParsing="false" onAction="#backToDashboard" text="&lt;">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button layoutX="81.0" layoutY="166.0" mnemonicParsing="false" onAction="#deleteReward" prefWidth="138.0" text="Delete reward" />
+      <Button layoutX="90.0" layoutY="179.0" mnemonicParsing="false" onAction="#deleteReward" prefWidth="138.0" text="Delete reward" />
+      <TextField fx:id="rewardTextfield" layoutX="40.0" layoutY="104.0" prefHeight="25.0" prefWidth="100.0" promptText="Name reward" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="90.0" />
+      <TextField fx:id="pointsTextfield" layoutX="229.0" layoutY="104.0" prefHeight="25.0" prefWidth="49.0" promptText="Points" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="20.0" />
    </children>
 </AnchorPane>
