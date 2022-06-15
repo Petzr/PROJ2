@@ -44,7 +44,7 @@ public class Organization extends Observable
     public void addUser(AbstractPerson user) { this.allUsers.add(user); }
     public void removeUser(AbstractPerson user) { this.allUsers.remove(user); }
     public ArrayList<Reward> getRewards() { return rewards; }
-    public Reward getReward(String name) { for (Reward reward : rewards) { if (reward.getName().equals(name)) return reward; } return null; }
+    public Reward getReward(String name) { for (Reward reward : rewards) { if (reward.getName().equalsIgnoreCase(name)) return reward; } return null; }
     public void addReward(Reward reward) { this.rewards.add(reward); }
     public void removeReward(Reward reward) { this.rewards.remove(reward); }
     public void removeUser(String email) { this.allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
