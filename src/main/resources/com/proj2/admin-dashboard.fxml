@@ -19,5 +19,6 @@
          </image>
       </ImageView>
       <Button layoutX="174.0" layoutY="323.0" mnemonicParsing="false" onAction="#toChangeProfile" text="Change Profile" />
+      <Button layoutX="28.0" layoutY="298.0" mnemonicParsing="false" onAction="#toRewards" text="Rewards" />
    </children>
 </AnchorPane>

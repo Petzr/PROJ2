@@ -5,6 +5,7 @@ import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,7 +13,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-public class AdminRewardController
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AdminRewardController implements Initializable, IControllerInfo
 {
 
     private AbstractPerson user;
@@ -22,11 +26,6 @@ public class AdminRewardController
     private TableColumn<Reward, String> colomnItems;
     @FXML
     private TableView<Reward> rewardsTable;
-
-    @FXML
-    void addReward(ActionEvent event) {
-
-    }
 
     @FXML
     void backToDashboard(ActionEvent event) {
@@ -44,7 +43,24 @@ public class AdminRewardController
     }
 
     @FXML
+    void addReward(ActionEvent event) {
+
+    }
+
+    @FXML
     void deleteReward(ActionEvent event) {
+
+    }
+
+    @Override
+    public void setUser(AbstractPerson user)
+    {
+        this.user = user;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
 
     }
 }
