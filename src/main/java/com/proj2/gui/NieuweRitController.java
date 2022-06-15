@@ -43,7 +43,8 @@ public class NieuweRitController implements Initializable, IControllerInfo
                 if (isNumeric(numberOfKm.getText())) {
                     ((User) user).newTravel(
                             vehicle,
-                            Integer.parseInt(numberOfKm.getText()));
+                            Integer.parseInt(numberOfKm.getText())
+                    );
                     backToDashboard(actionEvent);
                 } else errorMessage.setText("Incorrect number of kilometers.");
             }

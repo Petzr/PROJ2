@@ -61,7 +61,14 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
 
     @FXML
     void addReward(ActionEvent event) {
-
+        if (!rewardTextfield.getText().equals("") && !pointsTextfield.getText().equals("")) {
+            if (isNumeric(pointsTextfield.getText())) {
+                ((Admin) user).addReward(
+                        rewardTextfield.getText(),
+                        Integer.parseInt(pointsTextfield.getText())
+                );
+            } else errorMessage.setText("Incorrect number of kilometers.");
+        }
     }
 
     @FXML
@@ -70,7 +77,12 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
         if (reward != null) {
             ((Admin) user).removeReward(reward);
             backToDashboard(actionEvent);
-        } //else errorMessage.setText("Please select a reward before collecting it.");
+        } else if (!rewardTextfield.getText().equals("")) {
+            reward = Logic.get_organization().getReward(rewardTextfield.getText());
+            if (reward != null) {
+                ((Admin) user).removeReward(reward);
+            } else errorMessage.setText("Please enter the name of an existing reward.");
+        } else errorMessage.setText("Please select a reward before collecting it.");
     }
 
     @Override
@@ -104,5 +116,9 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
         ObservableList<Reward> list = FXCollections.observableArrayList();
         list.addAll(Logic.get_organization().getRewards());
         return list;
+    }
+
+    private static boolean isNumeric(String str){
+        return str != null && str.matches("[0-9.]+");
     }
 }
