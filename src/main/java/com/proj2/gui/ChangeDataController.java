@@ -11,9 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,6 +43,18 @@ public class ChangeDataController implements Initializable, IControllerInfo
     @FXML
     private ImageView profilePicture;
 
+    URL url;
+
+    {
+        try
+        {
+            url = new URL("https://pngset.com/images/katie-notopoulos-katienotopoulos-i-write-about-tech-round-profile-image-placeholder-text-number-symbol-word-transparent-png-201415.png");
+        } catch (MalformedURLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
     @FXML
     void backToDashboard(ActionEvent event) {
         // dit is nodig om de stage te bepalen
@@ -52,16 +70,56 @@ public class ChangeDataController implements Initializable, IControllerInfo
         if (scene != null) stage.setScene(scene);
     }
 
-    public void newProfilePicture()
+    public void downloadNewImage() throws IOException
     {
+        // Downloading image from URL
+        InputStream inputStream = url.openStream();
+        FileOutputStream fileOutputStream = new FileOutputStream("profilePicture.jpg");
+        int b = 0;
+        while ((b = inputStream.read()) != -1)
+        {
+            fileOutputStream.write(b);
+        }
+        fileOutputStream.close();
+        inputStream.close();
+    }
 
+    public void refactorImage()
+    {
+        // Moving and deleting file
+        File file = new File("profilePicture.jpg");
+        // renaming the file and moving it to a new location
+        if (file.renameTo
+                (new File("src/main/resources/profilePicture.jpg")))
+        {
+            // if file copied successfully then delete the original file
+            file.delete();
+            System.out.println("File moved successfully");
+        } else
+        {
+            System.out.println("Failed to move the file");
+        }
+        user.setImage(new Image("profilePicture.jpg"));
+    }
+
+    public void setProfilePicture() throws IOException
+    {
+        if (!pictureTextfield.getText().equals(""))
+        {
+            URL url = new URL(pictureTextfield.getText());
+            setUrl(url);
+            downloadNewImage();
+            refactorImage();
+            this.profilePicture.setImage(user.getImage());
+        }
     }
 
     @FXML
-    void changeData(ActionEvent event)
+    void changeData(ActionEvent event) throws IOException
     {
         if (user.comparePassword(oldPassword.getText()))
         {
+            setProfilePicture();
             if (!newName.getText().equals("") && !newPassword.getText().equals("")) {
                 user.setName(newName.getText());
                 user.setPassword(newPassword.getText());
@@ -81,4 +139,9 @@ public class ChangeDataController implements Initializable, IControllerInfo
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
+
+    public void setUrl(URL url)
+    {
+        this.url = url;
+    }
 }

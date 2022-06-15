@@ -2,6 +2,7 @@ package com.proj2.model.abstraction;
 
 import com.proj2.model.Reward;
 import com.proj2.service.PasswordHash;
+import javafx.scene.image.Image;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -12,6 +13,7 @@ public abstract class AbstractPerson extends AbstractEntity {
     private final String email;
     private String password;
     private boolean loggedIn;
+    private Image image;
 
     public AbstractPerson(String name, String email, String password) {
         this.name = name;
@@ -50,5 +52,15 @@ public abstract class AbstractPerson extends AbstractEntity {
 
     public boolean removeReward(Reward reward) {
         return false;
+    }
+
+    public void setImage(Image image)
+    {
+        this.image = image;
+    }
+
+    public Image getImage()
+    {
+        return image;
     }
 }
