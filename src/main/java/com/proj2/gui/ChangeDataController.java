@@ -65,10 +65,7 @@ public class ChangeDataController implements Initializable, IControllerInfo
     }
 
     @Override
-    public void setUser(AbstractPerson user)
-    {
-        this.user = user;
-    }
+    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
