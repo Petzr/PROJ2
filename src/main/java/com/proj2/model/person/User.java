@@ -49,6 +49,7 @@ public class User extends AbstractPerson {
                 this.points -= reward.getPoints();
                 Logic.get_organization().removeReward(reward);
                 this.claimedRewards.add(reward);
+                Logic.get_organization().updateObservers();
                 return true;
             }
         return false;

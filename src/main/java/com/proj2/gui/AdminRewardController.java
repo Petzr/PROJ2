@@ -68,6 +68,8 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
                         Integer.parseInt(pointsTextfield.getText())
                 );
                 createTable();
+                rewardTextfield.setText("");
+                pointsTextfield.setText("");
             } else errorMessage.setText("Incorrect number of kilometers.");
         }
     }
@@ -83,6 +85,7 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
             if (reward != null) {
                 ((Admin) user).removeReward(reward);
                 createTable();
+                rewardTextfield.setText("");
             } else errorMessage.setText("Please enter the name of an existing reward.");
         } else errorMessage.setText("Please select a reward before collecting it.");
     }
