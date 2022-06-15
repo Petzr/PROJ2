@@ -1,6 +1,7 @@
 package com.proj2.service;
 
 import com.proj2.model.Organization;
+import com.proj2.model.Reward;
 import com.proj2.model.person.Admin;
 import com.proj2.model.person.User;
 
@@ -30,6 +31,8 @@ public class Logic {
             _organization.addUser(new User("Dwayne Balentien", "17124298@student.hhs.nl", ("potvis")));
             _organization.addUser(new User("Bilal Massoudi", "20214995@student.hhs.nl", ("123")));
             _organization.addUser(new User("User", "user@foo.bar", ("123")));
+
+            _organization.addReward(new Reward("Free vacation", 69));
         } catch (Exception ignored) {}
     }
 }

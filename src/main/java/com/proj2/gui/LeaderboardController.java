@@ -71,9 +71,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
 
     private ObservableList<User> getUserList() {
         ObservableList<User> list = FXCollections.observableArrayList();
-        for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) {
-            list.add((User) person);
-        }
+        for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) list.add((User) person);
         return list;
     }
 }
