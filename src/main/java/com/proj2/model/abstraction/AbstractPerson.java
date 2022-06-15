@@ -1,5 +1,6 @@
 package com.proj2.model.abstraction;
 
+import com.proj2.model.Reward;
 import com.proj2.service.PasswordHash;
 
 public abstract class AbstractPerson extends AbstractEntity {
@@ -27,4 +28,6 @@ public abstract class AbstractPerson extends AbstractEntity {
             return PasswordHash.validatePassword(password, this.password);
         } catch (Exception e) { return false; }
     }
+
+    public boolean removeReward(Reward reward) { return false; }
 }
