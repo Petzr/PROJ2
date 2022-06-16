@@ -55,6 +55,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
         createTable();
     }
 
+    // Observer Pattern: de leaderboard krijgt een update
     @Override
     public void update(Observable o, Object arg) {
         System.out.println("update leaderboard " + user.getName());

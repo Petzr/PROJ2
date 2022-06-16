@@ -30,6 +30,7 @@ public class User extends AbstractPerson {
         this.points = points;
     }
 
+    // Observer Pattern: de observers krijgen een update
     public void newTravel(AbstractVehicle vehicle, int aantalKM) {
         Travel travel = new Travel(vehicle, aantalKM);
         points += travel.getPoints();

@@ -48,6 +48,7 @@ public class Organization extends Observable
     public void removeUser(String email) { this.allUsers.removeIf(user -> user.getEmail().equalsIgnoreCase(email)); }
     public boolean userExists(AbstractPerson user) { return this.allUsers.contains(user); }
 
+    // Observer Pattern: hier worden de observers aangeroepen
     public void updateObservers() {
         setChanged();
         notifyObservers();
