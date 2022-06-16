@@ -8,4 +8,10 @@ public class DieselCar extends AbstractVehicle
     public double getModifier() {
         return 3;
     }
+
+    @Override
+    public String getName()
+    {
+        return "Diesel Car";
+    }
 }

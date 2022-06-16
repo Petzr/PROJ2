@@ -8,4 +8,10 @@ public class PublicTransport extends AbstractVehicle
     public double getModifier() {
         return 12.5;
     }
+
+    @Override
+    public String getName()
+    {
+        return "Public Transport";
+    }
 }

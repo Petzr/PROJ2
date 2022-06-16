@@ -5,7 +5,10 @@ import java.util.Observable;
 public abstract class AbstractVehicle extends Observable
 {
     public abstract double getModifier();
-    public String getName() {
-        return String.valueOf(getClass()).substring(31);
+    public abstract String getName();
+
+    public String description()
+    {
+        return String.format("de voertuig %s heeft een modifier van %.1f", getName(), getModifier());
     }
 }

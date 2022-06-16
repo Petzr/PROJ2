@@ -8,4 +8,10 @@ public class Plane extends AbstractVehicle
     public double getModifier() {
         return 2;
     }
+
+    @Override
+    public String getName()
+    {
+        return "Plane";
+    }
 }

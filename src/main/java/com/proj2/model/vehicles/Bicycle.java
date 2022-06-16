@@ -8,4 +8,10 @@ public class Bicycle extends AbstractVehicle
     public double getModifier() {
         return 15;
     }
+
+    @Override
+    public String getName()
+    {
+        return "Bicycle";
+    }
 }
