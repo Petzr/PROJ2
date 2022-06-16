@@ -5,8 +5,10 @@ import com.proj2.service.PasswordHash;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Observable;
 
-public abstract class AbstractPerson extends AbstractEntity {
+public abstract class AbstractPerson extends Observable
+{
     private String name;
     private final String email;
     private String password;

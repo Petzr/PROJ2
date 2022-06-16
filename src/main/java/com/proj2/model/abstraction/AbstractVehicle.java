@@ -1,6 +1,8 @@
 package com.proj2.model.abstraction;
 
-public abstract class AbstractVehicle extends AbstractEntity
+import java.util.Observable;
+
+public abstract class AbstractVehicle extends Observable
 {
     public abstract double getModifier();
     public String getName() {
