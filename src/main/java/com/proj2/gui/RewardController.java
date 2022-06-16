@@ -6,8 +6,6 @@ import com.proj2.model.person.User;
 import com.proj2.service.Logic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import com.proj2.model.vehicles.*;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,14 +39,10 @@ public class RewardController implements Initializable, IControllerInfo, Observe
 
     @FXML
     void backToDashboard(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
     }
 
@@ -77,7 +71,7 @@ public class RewardController implements Initializable, IControllerInfo, Observe
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update leaderboard " + user.getName());
+        System.out.println("update rewards: " + user.getName());
         rewardsTable.refresh();
     }
 

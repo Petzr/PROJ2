@@ -70,7 +70,7 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
                 createTable();
                 rewardTextfield.setText("");
                 pointsTextfield.setText("");
-            } else errorMessage.setText("Incorrect number of kilometers.");
+            } else errorMessage.setText("Incorrect number of points.");
         }
     }
 
@@ -87,7 +87,7 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
                 createTable();
                 rewardTextfield.setText("");
             } else errorMessage.setText("Please enter the name of an existing reward.");
-        } else errorMessage.setText("Please select a reward before collecting it.");
+        } else errorMessage.setText("Please select a reward before deleting it.");
     }
 
     @Override
@@ -102,7 +102,7 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update leaderboard " + user.getName());
+        System.out.println("update rewards: " + user.getName());
         rewardsTable.refresh();
     }
 
