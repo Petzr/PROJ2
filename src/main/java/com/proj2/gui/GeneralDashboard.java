@@ -14,29 +14,23 @@ public class GeneralDashboard extends MainController {
         return nameUser;
     }
 
+    @FXML
     public void showLeaderboard(ActionEvent actionEvent)
     {
-        Stage stage = IControllerInfo.getStage(actionEvent);
-        changeSceneTo(stage, "/com/proj2/leaderboard.fxml", new LeaderboardController());
+        changeSceneTo(actionEvent, "/com/proj2/leaderboard.fxml", new LeaderboardController());
     }
-
-
     @FXML
     void toChangeProfile(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/change-profile.fxml", new ChangeDataController());
+        changeSceneTo(event, "/com/proj2/change-profile.fxml", new ChangeDataController());
     }
-
-
     @FXML
     void toRewards(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/rewards.fxml", new RewardController());
+        changeSceneTo(event, "/com/proj2/rewards.fxml", new RewardController());
     }
 
     public void logOutButton(ActionEvent actionEvent) {
         getUser().setLoggedIn(false);
-        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+        IControllerInfo.getStage(actionEvent).close();
     }
 
 }

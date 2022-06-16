@@ -74,6 +74,10 @@ public class AdminRewardController extends MainController implements Initializab
         } else errorMessage.setText("Please select a reward before collecting it.");
     }
 
+    @Override
+    public void backToDashboard(ActionEvent actionEvent) {
+        changeSceneTo(actionEvent, "/com/proj2/admin-dashboard.fxml",  new AdminDashboardController());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)

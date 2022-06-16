@@ -15,24 +15,19 @@ import java.util.ResourceBundle;
 
 public class AdminDashboardController extends GeneralDashboard implements Initializable
 {
-
-
     @FXML
     void nieuweGebruiker(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/registration.fxml", new RegistrationController());
+        changeSceneTo(event, "/com/proj2/registration.fxml", new RegistrationController());
     }
 
     @FXML
     void verwijderGebruiker(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/deleting-user.fxml", new DeletingUserController());
+        changeSceneTo(event, "/com/proj2/deleting-user.fxml", new DeletingUserController());
     }
 
-    @Override
+    @FXML
     void toRewards(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/admin-reward.fxml", new AdminRewardController());
+        changeSceneTo(event, "/com/proj2/admin-reward.fxml", new AdminRewardController());
     }
 
     @Override

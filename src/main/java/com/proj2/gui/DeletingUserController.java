@@ -40,6 +40,11 @@ public class DeletingUserController extends MainController implements Initializa
     }
 
     @Override
+    public void backToDashboard(ActionEvent actionEvent) {
+        changeSceneTo(actionEvent, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
+    }
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
 

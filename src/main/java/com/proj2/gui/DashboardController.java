@@ -21,14 +21,12 @@ public class DashboardController extends GeneralDashboard implements Initializab
 
     public void nieuweRit(ActionEvent actionEvent)
     {
-        Stage stage = IControllerInfo.getStage(actionEvent);
-        changeSceneTo(stage, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
+        changeSceneTo(actionEvent, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
     }
 
     @FXML
     void toHistory(ActionEvent actionEvent) {
-        Stage stage = IControllerInfo.getStage(actionEvent);
-        changeSceneTo(stage, "/com/proj2/trip-history.fxml", new TripHistoryController());
+        changeSceneTo(actionEvent, "/com/proj2/trip-history.fxml", new TripHistoryController());
     }
 
     @Override
