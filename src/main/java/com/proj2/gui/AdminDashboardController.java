@@ -13,17 +13,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController extends MainController implements Initializable
+public class AdminDashboardController extends GeneralDashboard implements Initializable
 {
 
-    @FXML
-    private Label nameUser;
-
-    @FXML
-    public void logOutButton(ActionEvent actionEvent) {
-        getUser().setLoggedIn(false);
-        IControllerInfo.getStage(actionEvent).close();
-    }
 
     @FXML
     void nieuweGebruiker(ActionEvent event) {
@@ -37,19 +29,7 @@ public class AdminDashboardController extends MainController implements Initiali
         changeSceneTo(stage, "/com/proj2/deleting-user.fxml", new DeletingUserController());
     }
 
-    @FXML
-    void showLeaderboard(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/leaderboard.fxml", new LeaderboardController());
-    }
-
-    @FXML
-    void toChangeProfile(ActionEvent event) {
-        Stage stage = IControllerInfo.getStage(event);
-        changeSceneTo(stage, "/com/proj2/change-profile.fxml", new ChangeDataController());
-    }
-
-    @FXML
+    @Override
     void toRewards(ActionEvent event) {
         Stage stage = IControllerInfo.getStage(event);
         changeSceneTo(stage, "/com/proj2/admin-reward.fxml", new AdminRewardController());
@@ -58,6 +38,6 @@ public class AdminDashboardController extends MainController implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        nameUser.setText(getUser().getName());
+        getNameUser().setText(getUser().getName());
     }
 }
