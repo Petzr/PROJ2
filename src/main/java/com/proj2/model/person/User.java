@@ -43,6 +43,8 @@ public class User extends AbstractPerson {
         return travels;
     }
 
+
+    // verwijderd reward uit store en voegt m toe aan claimedRewards.
     @Override
     public boolean removeReward(Reward reward) {
         if (Logic.get_organization().getRewards().contains(reward))
