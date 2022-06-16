@@ -22,67 +22,34 @@ public class DashboardController extends MainController implements Initializable
 
     public void nieuweRit(ActionEvent actionEvent)
     {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(actionEvent);
+        changeSceneTo(stage, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
     }
 
     public void showLeaderboard(ActionEvent actionEvent)
     {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/leaderboard.fxml", new LeaderboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(actionEvent);
+        changeSceneTo(stage, "/com/proj2/leaderboard.fxml", new LeaderboardController());
     }
 
     @FXML
     void toHistory(ActionEvent actionEvent) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/trip-history.fxml", new TripHistoryController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(actionEvent);
+        changeSceneTo(stage, "/com/proj2/trip-history.fxml", new TripHistoryController());
     }
+
 
     @FXML
     void toChangeProfile(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/change-profile.fxml", new ChangeDataController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/change-profile.fxml", new ChangeDataController());
     }
+
 
     @FXML
     void toRewards(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/rewards.fxml", new RewardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/rewards.fxml", new RewardController());
     }
 
     public void logOutButton(ActionEvent actionEvent) {

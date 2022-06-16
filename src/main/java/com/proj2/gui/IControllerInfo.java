@@ -1,7 +1,9 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -9,7 +11,9 @@ import java.io.IOException;
 
 public interface IControllerInfo {
     void setUser(AbstractPerson user);
-    void setStage(Stage stage);
+    static Stage getStage(Event event) {
+        return (Stage) ((Node) event.getSource()).getScene().getWindow();
+    }
 
     static Scene createNewScene(AbstractPerson user, String fxmlFile, IControllerInfo controller) {
         // het laden van de fxml file

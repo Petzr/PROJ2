@@ -22,72 +22,37 @@ public class AdminDashboardController extends MainController implements Initiali
     @FXML
     public void logOutButton(ActionEvent actionEvent) {
         getUser().setLoggedIn(false);
-        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+        IControllerInfo.getStage(actionEvent).close();
     }
 
     @FXML
     void nieuweGebruiker(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/registration.fxml", new RegistrationController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/registration.fxml", new RegistrationController());
     }
 
     @FXML
     void verwijderGebruiker(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/deleting-user.fxml", new DeletingUserController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/deleting-user.fxml", new DeletingUserController());
     }
 
     @FXML
     void showLeaderboard(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/leaderboard.fxml", new LeaderboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/leaderboard.fxml", new LeaderboardController());
     }
 
     @FXML
     void toChangeProfile(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/change-profile.fxml", new ChangeDataController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/change-profile.fxml", new ChangeDataController());
     }
 
     @FXML
     void toRewards(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/admin-reward.fxml", new AdminRewardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
+        Stage stage = IControllerInfo.getStage(event);
+        changeSceneTo(stage, "/com/proj2/admin-reward.fxml", new AdminRewardController());
     }
 
     @Override
