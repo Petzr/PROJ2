@@ -7,11 +7,13 @@ import com.proj2.service.AuthenticationProvider;
 import com.proj2.service.AuthorizationProvider;
 import com.proj2.service.Logic;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -23,6 +25,7 @@ public class LogInController implements Initializable, IControllerInfo
     public PasswordField passwordField;
     public Label logintxt;
 
+    @FXML
     public void logInButtonClick(ActionEvent actionEvent)
     {
         AbstractPerson login = AuthorizationProvider.login(emailField.getText(), passwordField.getText());
@@ -31,12 +34,16 @@ public class LogInController implements Initializable, IControllerInfo
             if (login instanceof Admin) scene = IControllerInfo.createNewScene(login, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
             else scene = IControllerInfo.createNewScene(login, "/com/proj2/dashboard.fxml", new DashboardController());
             Stage stage = new Stage();
+            stage.setTitle("Dashboard of: " + login.getName());
+            stage.getIcons().add(new Image("logo.png"));
+            stage.setOnCloseRequest(s -> login.setLoggedIn(false));
             stage.setScene(scene);
             stage.setUserData(login);
             stage.show();
             logintxt.setText("");
             emailField.setText("");
             passwordField.setText("");
+            emailField.requestFocus();
         } else logintxt.setText("Mail and/or password incorrect or user already logged in");
     }
 

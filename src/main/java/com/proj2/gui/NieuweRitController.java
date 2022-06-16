@@ -3,11 +3,8 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import com.proj2.model.vehicles.*;
-import com.proj2.model.vehicles.AbstractVehicle;
-import com.proj2.model.vehicles.*;
-import com.proj2.service.Logic;
+import com.proj2.model.abstraction.AbstractVehicle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -33,19 +30,25 @@ public class NieuweRitController implements Initializable, IControllerInfo
     public TableColumn<AbstractVehicle, Class> colomnVehicle;
     @FXML
     public TableColumn<AbstractVehicle, Integer> colomnModifier;
-    public Label errorTxt;
+    @FXML
+    private Label errorMessage;
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
     {
-        if (user instanceof User) {
-            if (isNumeric(numberOfKm.getText())) {
-                ((User) user).newTravel(
-                        vehiclesTable.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(numberOfKm.getText()));
-                backToDashboard(actionEvent);
-            } else errorTxt.setText("Incorrect number of kilometers.");
-        }
+        AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
+
+        if (vehicle != null) {
+            if (user instanceof User) {
+                if (isNumeric(numberOfKm.getText())) {
+                    ((User) user).newTravel(
+                            vehicle,
+                            Integer.parseInt(numberOfKm.getText())
+                    );
+                    backToDashboard(actionEvent);
+                } else errorMessage.setText("Incorrect number of kilometers.");
+            }
+        } else errorMessage.setText("Please select a vehicle before calculating points.");
     }
 
     public void backToDashboard(ActionEvent actionEvent) {
@@ -75,7 +78,7 @@ public class NieuweRitController implements Initializable, IControllerInfo
         colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
 
         vehiclesTable.setItems(FXCollections.observableArrayList(
-                new Bike(),
+                new Bicycle(),
                 new DieselCar(),
                 new ElectricCar(),
                 new GasolineCar(),

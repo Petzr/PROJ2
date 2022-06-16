@@ -4,6 +4,7 @@ import com.proj2.service.Logic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,7 +16,8 @@ public class StartApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/log-in.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Hello!");
+        stage.getIcons().add(new Image("logo.png"));
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

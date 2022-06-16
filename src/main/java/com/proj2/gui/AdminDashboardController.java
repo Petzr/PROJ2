@@ -65,6 +65,32 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         if (scene != null) stage.setScene(scene);
     }
 
+    @FXML
+    void toChangeProfile(ActionEvent event) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/change-profile.fxml", new ChangeDataController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
+    @FXML
+    void toRewards(ActionEvent event) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-reward.fxml", new AdminRewardController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
     @Override
     public void setUser(AbstractPerson user) { this.user = user; }
 

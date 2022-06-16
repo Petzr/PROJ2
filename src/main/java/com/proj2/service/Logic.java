@@ -1,6 +1,7 @@
 package com.proj2.service;
 
 import com.proj2.model.Organization;
+import com.proj2.model.Reward;
 import com.proj2.model.person.Admin;
 import com.proj2.model.person.User;
 

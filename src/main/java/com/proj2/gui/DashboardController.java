@@ -3,6 +3,7 @@ package com.proj2.gui;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -41,6 +42,45 @@ public class DashboardController implements Initializable, IControllerInfo
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
         Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
+    @FXML
+    void toHistory(ActionEvent actionEvent) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/trip-history.fxml", new TripHistoryController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
+    @FXML
+    void toChangeProfile(ActionEvent event) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/change-profile.fxml", new ChangeDataController());
+
+        // spreekt voorzich denk...
+        if (scene != null) stage.setScene(scene);
+    }
+
+    @FXML
+    void toRewards(ActionEvent event) {
+        // dit is nodig om de stage te bepalen
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        // hier wordt de nieuwe scene gemaakt en de user meegegeven
+        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/rewards.fxml", new RewardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);

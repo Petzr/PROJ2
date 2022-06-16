@@ -50,29 +50,28 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { createTable(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Logic.get_organization().addObserver(this);
+        createTable();
+    }
 
     @Override
-    public void update(Observable o, Object arg) { createTable(); }
+    public void update(Observable o, Object arg) {
+        System.out.println("update leaderboard " + user.getName());
+        leaderboardTable.refresh();
+    }
 
     private void createTable(){
-
         usercolomn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         pointscolomn.setCellValueFactory(new PropertyValueFactory<User, Integer>("points"));
-
         pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
 
         leaderboardTable.setItems(getUserList());
-
     }
 
     private ObservableList<User> getUserList() {
         ObservableList<User> list = FXCollections.observableArrayList();
-        for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) {
-            list.add((User) person);
-        }
-
+        for (AbstractPerson person : Logic.get_organization().getAllUsers()) if (person instanceof User) list.add((User) person);
         return list;
-
     }
 }
