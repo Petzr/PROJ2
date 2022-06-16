@@ -17,19 +17,14 @@ import java.util.ResourceBundle;
 
 public class RegistrationController extends MainController implements Initializable
 {
-
     @FXML
     private TextField mailtf;
-
     @FXML
     private TextField nametf;
-
     @FXML
     private PasswordField passwordtf;
-
     @FXML
     private PasswordField passwordtf2;
-
     @FXML
     private Label regLabel;
 
@@ -40,11 +35,6 @@ public class RegistrationController extends MainController implements Initializa
                 ((Admin) getUser()).addUser(nametf.getText(), mailtf.getText(), passwordtf.getText());
                 regLabel.setText("Registration succesfull.");
             } else regLabel.setText("Something went wrong.");
-    }
-
-    @Override
-    public void backToDashboard(ActionEvent actionEvent) {
-        changeSceneTo(actionEvent, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
     }
 
     @Override

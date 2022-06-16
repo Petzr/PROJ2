@@ -19,12 +19,10 @@ public class AdminDashboardController extends GeneralDashboard implements Initia
     void nieuweGebruiker(ActionEvent event) {
         changeSceneTo(event, "/com/proj2/registration.fxml", new RegistrationController());
     }
-
     @FXML
     void verwijderGebruiker(ActionEvent event) {
         changeSceneTo(event, "/com/proj2/deleting-user.fxml", new DeletingUserController());
     }
-
     @FXML
     void toRewards(ActionEvent event) {
         changeSceneTo(event, "/com/proj2/admin-reward.fxml", new AdminRewardController());

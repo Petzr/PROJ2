@@ -26,20 +26,16 @@ import java.util.ResourceBundle;
 
 public class AdminRewardController extends MainController implements Initializable, Observer
 {
-
     @FXML
     private TableColumn<Reward, Integer> colomnCost;
     @FXML
     private TableColumn<Reward, String> colomnItems;
     @FXML
     private TableView<Reward> rewardsTable;
-
     @FXML
     private TextField pointsTextfield;
-
     @FXML
     private TextField rewardTextfield;
-
     @FXML
     private Label errorMessage;
 
@@ -57,7 +53,6 @@ public class AdminRewardController extends MainController implements Initializab
             } else errorMessage.setText("Incorrect number of kilometers.");
         }
     }
-
     @FXML
     void deleteReward(ActionEvent actionEvent) {
         Reward reward = rewardsTable.getSelectionModel().getSelectedItem();
@@ -72,11 +67,6 @@ public class AdminRewardController extends MainController implements Initializab
                 rewardTextfield.setText("");
             } else errorMessage.setText("Please enter the name of an existing reward.");
         } else errorMessage.setText("Please select a reward before collecting it.");
-    }
-
-    @Override
-    public void backToDashboard(ActionEvent actionEvent) {
-        changeSceneTo(actionEvent, "/com/proj2/admin-dashboard.fxml",  new AdminDashboardController());
     }
 
     @Override

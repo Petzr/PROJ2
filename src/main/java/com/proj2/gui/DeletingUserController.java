@@ -17,16 +17,12 @@ import java.util.ResourceBundle;
 
 public class DeletingUserController extends MainController implements Initializable
 {
-
     @FXML
     private TextField mailtf;
-
     @FXML
     private PasswordField passwordAdmintf;
-
     @FXML
     private PasswordField passwordUsertf;
-
     @FXML
     private Label delLabel;
 
@@ -37,11 +33,6 @@ public class DeletingUserController extends MainController implements Initializa
                 ((Admin) getUser()).removeUser(mailtf.getText());
                 delLabel.setText("User deleted.");
             }
-    }
-
-    @Override
-    public void backToDashboard(ActionEvent actionEvent) {
-        changeSceneTo(actionEvent, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
     }
 
     @Override
