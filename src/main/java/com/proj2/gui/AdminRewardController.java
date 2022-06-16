@@ -1,23 +1,18 @@
 package com.proj2.gui;
 
 import com.proj2.model.Reward;
-import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
-import com.proj2.model.person.User;
 import com.proj2.service.Logic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Observable;

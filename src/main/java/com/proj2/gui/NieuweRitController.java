@@ -29,6 +29,7 @@ public class NieuweRitController extends MainController implements Initializable
     @FXML
     public TextField numberOfKm;
 
+    @FXML
     public void calculatePoints(ActionEvent actionEvent)
     {
         AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
@@ -46,17 +47,14 @@ public class NieuweRitController extends MainController implements Initializable
         } else errorMessage.setText("Please select a vehicle before calculating points.");
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createVehicleTable();
     }
 
     private void createVehicleTable() {
-
         colomnVehicle.setCellValueFactory(new PropertyValueFactory<>("name"));
         colomnModifier.setCellValueFactory(new PropertyValueFactory<>("modifier"));
-
         vehiclesTable.setItems(FXCollections.observableArrayList(
                 new Bicycle(),
                 new DieselCar(),

@@ -2,9 +2,7 @@ package com.proj2.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 public class GeneralDashboard extends MainController {
     @FXML
@@ -28,9 +26,9 @@ public class GeneralDashboard extends MainController {
         changeSceneTo(event, "/com/proj2/rewards.fxml", new RewardController());
     }
 
+    @FXML
     public void logOutButton(ActionEvent actionEvent) {
         getUser().setLoggedIn(false);
         IControllerInfo.getStage(actionEvent).close();
     }
-
 }

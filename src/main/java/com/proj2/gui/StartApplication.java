@@ -13,12 +13,13 @@ public class StartApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Logic.seedOrganisation();
+
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/com/proj2/log-in.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
 
         stage.getIcons().add(new Image("logo.png"));
         stage.setTitle("Login");
-        stage.setScene(scene);
         stage.show();
     }
 

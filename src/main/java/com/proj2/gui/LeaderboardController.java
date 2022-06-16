@@ -1,20 +1,15 @@
 package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
-import com.proj2.model.person.Admin;
 import com.proj2.service.Logic;
 import com.proj2.model.person.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Observable;
@@ -23,7 +18,6 @@ import java.util.ResourceBundle;
 
 public class LeaderboardController extends MainController implements Initializable, Observer
 {
-
     @FXML
     public TableView<User> leaderboardTable;
     @FXML
@@ -44,11 +38,10 @@ public class LeaderboardController extends MainController implements Initializab
         leaderboardTable.refresh();
     }
 
-    private void createTable(){
+    private void createTable() {
         usercolomn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         pointscolomn.setCellValueFactory(new PropertyValueFactory<User, Integer>("points"));
         pointscolomn.setSortType(TableColumn.SortType.DESCENDING);
-
         leaderboardTable.setItems(getUserList());
     }
 
