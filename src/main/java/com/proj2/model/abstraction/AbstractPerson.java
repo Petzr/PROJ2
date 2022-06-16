@@ -7,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public abstract class AbstractPerson extends AbstractEntity {
-    //methods relating to Person
     private String name;
     private final String email;
     private String password;

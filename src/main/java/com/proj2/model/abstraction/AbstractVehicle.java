@@ -1,7 +1,5 @@
 package com.proj2.model.abstraction;
 
-import com.proj2.model.abstraction.AbstractEntity;
-
 public abstract class AbstractVehicle extends AbstractEntity
 {
     public abstract double getModifier();

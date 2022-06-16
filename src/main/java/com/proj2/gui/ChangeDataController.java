@@ -2,7 +2,6 @@ package com.proj2.gui;
 
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.Admin;
-import com.proj2.service.PasswordHash;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
