@@ -46,16 +46,14 @@ class AdminTest
     {
         Admin admin = new Admin("Daner", "Daner@", "123");
 
-        Reward expected = new Reward("PlayStation 7", 420);
+        boolean makeReward = admin.addReward("PlayStation 7", 420);
 
-        boolean rewardAdded = admin.addReward("PlayStation 7", 420);
+        Reward reward = Logic.get_organization().getRewards().get(0);
 
-        Reward actual = Logic.get_organization().getRewards().get(0);
+        boolean removeReward = admin.removeReward(reward);
 
-        assertEquals(expected.getName(), actual.getName());
-        assertEquals(expected.getPoints(), actual.getPoints());
+        boolean actual = Logic.get_organization().getRewards().isEmpty();
 
-
-
+        assertTrue(actual);
     }
 }
