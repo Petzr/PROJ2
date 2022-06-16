@@ -1,21 +1,17 @@
 package com.proj2.gui;
 
-import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.model.person.User;
 import com.proj2.model.vehicles.*;
 import com.proj2.model.abstraction.AbstractVehicle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +26,7 @@ public class NieuweRitController extends MainController implements Initializable
     public TableColumn<AbstractVehicle, Integer> colomnModifier;
     @FXML
     private Label errorMessage;
+    @FXML
     public TextField numberOfKm;
 
     public void calculatePoints(ActionEvent actionEvent)
