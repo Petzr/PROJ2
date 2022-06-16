@@ -14,9 +14,9 @@
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Button layoutX="50.0" layoutY="395.0" mnemonicParsing="false" onAction="#nieuweRit" text="New trip" />
+      <Button layoutX="50.0" layoutY="395.0" mnemonicParsing="false" onAction="#nieuweRit" text="New trip" AnchorPane.leftAnchor="50.0" />
       <Button layoutX="179.0" layoutY="395.0" mnemonicParsing="false" onAction="#showLeaderboard" text="Leaderboard" />
-      <Button layoutX="121.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutButton" text="Log out" AnchorPane.bottomAnchor="58.4" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="121.4" AnchorPane.topAnchor="466.0" />
+      <Button layoutX="179.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutButton" text="Log out" AnchorPane.bottomAnchor="58.39999999999998" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="63.400000000000006" AnchorPane.topAnchor="466.0" />
       <Label fx:id="pointsUser" alignment="CENTER" layoutX="92.0" layoutY="239.0" text="&lt; AANTAL PUNTEN &gt;" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="280.0">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -26,7 +26,8 @@
             <Image url="@../../betabittransparent.png" />
          </image>
       </ImageView>
-      <Button layoutX="50.0" layoutY="355.0" mnemonicParsing="false" onAction="#toHistory" text="Trip History" />
+      <Button layoutX="50.0" layoutY="355.0" mnemonicParsing="false" onAction="#toHistory" text="Trip History" AnchorPane.leftAnchor="50.0" />
+      <Button layoutX="53.0" layoutY="466.0" mnemonicParsing="false" onAction="#toChangeProfile" text="Change Profile" AnchorPane.leftAnchor="50.0" />
       <Button layoutX="179.0" layoutY="355.0" mnemonicParsing="false" onAction="#toRewards" text="Rewards" />
-   </children>
+     </children>
 </AnchorPane>

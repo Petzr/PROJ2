@@ -14,16 +14,19 @@ public class Admin extends AbstractPerson {
 
         AbstractPerson user = new User(name, email, password);
         Logic.get_organization().addUser(user);
+        Logic.get_organization().updateObservers();
         return Logic.get_organization().getAllUsers().contains(user);
     }
     public boolean removeUser(User user) {
         Logic.get_organization().removeUser(user);
+        Logic.get_organization().updateObservers();
         return !Logic.get_organization().getAllUsers().contains(user);
     }
 
     public boolean removeUser(String email) {
         Logic.get_organization().removeUser(email);
         for(AbstractPerson user : Logic.get_organization().getAllUsers()) if(user.getEmail().equalsIgnoreCase(email)) return false;
+        Logic.get_organization().updateObservers();
         return true;
     }
 
@@ -33,11 +36,13 @@ public class Admin extends AbstractPerson {
 
         Reward reward = new Reward(name, points);
         Logic.get_organization().addReward(reward);
+        Logic.get_organization().updateObservers();
         return Logic.get_organization().getRewards().contains(reward);
     }
     @Override
     public boolean removeReward(Reward reward) {
         Logic.get_organization().removeReward(reward);
+        Logic.get_organization().updateObservers();
         return !Logic.get_organization().getRewards().contains(reward);
     }
 }
