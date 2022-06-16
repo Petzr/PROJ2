@@ -17,9 +17,7 @@ public abstract class AbstractPerson extends AbstractEntity {
         this.email = email;
         try {
             this.password = PasswordHash.createHash(password);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             throw new RuntimeException(e);
         }
         this.loggedIn = false;
