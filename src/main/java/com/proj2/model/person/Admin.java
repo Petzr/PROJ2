@@ -4,6 +4,10 @@ import com.proj2.model.Organization;
 import com.proj2.model.Reward;
 import com.proj2.model.abstraction.AbstractPerson;
 import com.proj2.service.Logic;
+import com.proj2.service.PasswordHash;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class Admin extends AbstractPerson {
     public Admin(String name, String email, String password) { super(name, email, password); }
