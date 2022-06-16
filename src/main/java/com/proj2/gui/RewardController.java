@@ -22,9 +22,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class RewardController implements Initializable, IControllerInfo, Observer
+public class RewardController extends MainController implements Initializable, Observer
 {
-    private AbstractPerson user;
     @FXML
     private TableColumn<Reward, Integer> colomnCost;
     @FXML
@@ -38,44 +37,25 @@ public class RewardController implements Initializable, IControllerInfo, Observe
     private Label errorMessage;
 
     @FXML
-    void backToDashboard(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @FXML
     void buyItem(ActionEvent actionEvent) {
         Reward reward = rewardsTable.getSelectionModel().getSelectedItem();
         if (reward != null) {
-            ((User) user).removeReward(reward);
+            ((User) getUser()).removeReward(reward);
             backToDashboard(actionEvent);
         } else errorMessage.setText("Please select a reward before collecting it.");
     }
 
     @Override
-    public void setUser(AbstractPerson user)
-    {
-        this.user = user;
-    }
-
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        pointsUser.setText(Integer.toString(((User) user).getPoints()));
+        pointsUser.setText(Integer.toString(((User) getUser()).getPoints()));
         Logic.get_organization().addObserver(this);
         createTable();
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update leaderboard " + user.getName());
+        System.out.println("update leaderboard " + getUser().getName());
         rewardsTable.refresh();
     }
 

@@ -24,10 +24,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class AdminRewardController implements Initializable, IControllerInfo, Observer
+public class AdminRewardController extends MainController implements Initializable, Observer
 {
 
-    private AbstractPerson user;
     @FXML
     private TableColumn<Reward, Integer> colomnCost;
     @FXML
@@ -45,25 +44,10 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
     private Label errorMessage;
 
     @FXML
-    void backToDashboard(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene;
-        if (user instanceof Admin) scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
-        else scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @FXML
     void addReward(ActionEvent event) {
         if (!rewardTextfield.getText().equals("") && !pointsTextfield.getText().equals("")) {
             if (isNumeric(pointsTextfield.getText())) {
-                ((Admin) user).addReward(
+                ((Admin) getUser()).addReward(
                         rewardTextfield.getText(),
                         Integer.parseInt(pointsTextfield.getText())
                 );
@@ -78,20 +62,18 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
     void deleteReward(ActionEvent actionEvent) {
         Reward reward = rewardsTable.getSelectionModel().getSelectedItem();
         if (reward != null) {
-            ((Admin) user).removeReward(reward);
+            ((Admin) getUser()).removeReward(reward);
             createTable();
         } else if (!rewardTextfield.getText().equals("")) {
             reward = Logic.get_organization().getReward(rewardTextfield.getText());
             if (reward != null) {
-                ((Admin) user).removeReward(reward);
+                ((Admin) getUser()).removeReward(reward);
                 createTable();
                 rewardTextfield.setText("");
             } else errorMessage.setText("Please enter the name of an existing reward.");
         } else errorMessage.setText("Please select a reward before collecting it.");
     }
 
-    @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -102,7 +84,7 @@ public class AdminRewardController implements Initializable, IControllerInfo, Ob
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update leaderboard " + user.getName());
+        System.out.println("update leaderboard " + getUser().getName());
         rewardsTable.refresh();
     }
 

@@ -20,10 +20,8 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NieuweRitController implements Initializable, IControllerInfo
+public class NieuweRitController extends MainController implements Initializable
 {
-    private AbstractPerson user;
-
     @FXML
     public TableView<AbstractVehicle> vehiclesTable;
     @FXML
@@ -39,9 +37,9 @@ public class NieuweRitController implements Initializable, IControllerInfo
         AbstractVehicle vehicle = vehiclesTable.getSelectionModel().getSelectedItem();
 
         if (vehicle != null) {
-            if (user instanceof User) {
+            if (getUser() instanceof User) {
                 if (isNumeric(numberOfKm.getText())) {
-                    ((User) user).newTravel(
+                    ((User) getUser()).newTravel(
                             vehicle,
                             Integer.parseInt(numberOfKm.getText())
                     );
@@ -51,21 +49,6 @@ public class NieuweRitController implements Initializable, IControllerInfo
         } else errorMessage.setText("Please select a vehicle before calculating points.");
     }
 
-    public void backToDashboard(ActionEvent actionEvent) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    public void setUser(AbstractPerson user) {
-        this.user = user;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

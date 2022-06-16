@@ -13,16 +13,15 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController implements Initializable, IControllerInfo
+public class AdminDashboardController extends MainController implements Initializable
 {
-    private AbstractPerson user;
 
     @FXML
     private Label nameUser;
 
     @FXML
     public void logOutButton(ActionEvent actionEvent) {
-        user.setLoggedIn(false);
+        getUser().setLoggedIn(false);
         ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
@@ -33,7 +32,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/registration.fxml", new RegistrationController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/registration.fxml", new RegistrationController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -46,7 +45,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/deleting-user.fxml", new DeletingUserController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/deleting-user.fxml", new DeletingUserController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -59,7 +58,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/leaderboard.fxml", new LeaderboardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -72,7 +71,7 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/change-profile.fxml", new ChangeDataController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/change-profile.fxml", new ChangeDataController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -85,18 +84,15 @@ public class AdminDashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-reward.fxml", new AdminRewardController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/admin-reward.fxml", new AdminRewardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
     }
 
     @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
-
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        nameUser.setText(user.getName());
+        nameUser.setText(getUser().getName());
     }
 }

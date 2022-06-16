@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LogInController implements Initializable, IControllerInfo
+public class LogInController implements Initializable
 {
     public TextField emailField;
     public PasswordField passwordField;
@@ -44,8 +44,6 @@ public class LogInController implements Initializable, IControllerInfo
         } else logintxt.setText("Mail and/or password incorrect or user already logged in");
     }
 
-    @Override
-    public void setUser(AbstractPerson user) {}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}

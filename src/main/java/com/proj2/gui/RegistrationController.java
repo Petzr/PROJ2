@@ -15,9 +15,8 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegistrationController implements Initializable, IControllerInfo
+public class RegistrationController extends MainController implements Initializable
 {
-    private AbstractPerson user;
 
     @FXML
     private TextField mailtf;
@@ -35,29 +34,13 @@ public class RegistrationController implements Initializable, IControllerInfo
     private Label regLabel;
 
     @FXML
-    void backToDashboard(ActionEvent event) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @FXML
     void registerUser(ActionEvent event) {
-        if (user instanceof Admin)
+        if (getUser() instanceof Admin)
             if (passwordtf.getText().equals(passwordtf2.getText())) {
-                ((Admin) user).addUser(nametf.getText(), mailtf.getText(), passwordtf.getText());
+                ((Admin) getUser()).addUser(nametf.getText(), mailtf.getText(), passwordtf.getText());
                 regLabel.setText("Registration succesfull.");
             } else regLabel.setText("Something went wrong.");
     }
-
-    @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)

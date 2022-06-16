@@ -15,9 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable, IControllerInfo
+public class DashboardController extends MainController implements Initializable
 {
-    private AbstractPerson user;
     public Label nameUser;
     public Label pointsUser;
 
@@ -28,7 +27,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/nieuwe-rit.fxml", new NieuweRitController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -41,7 +40,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/leaderboard.fxml", new LeaderboardController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/leaderboard.fxml", new LeaderboardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -54,7 +53,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/trip-history.fxml", new TripHistoryController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/trip-history.fxml", new TripHistoryController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -67,7 +66,7 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/change-profile.fxml", new ChangeDataController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/change-profile.fxml", new ChangeDataController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
@@ -80,22 +79,21 @@ public class DashboardController implements Initializable, IControllerInfo
         Stage stage = (Stage) node.getScene().getWindow();
 
         // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/rewards.fxml", new RewardController());
+        Scene scene = IControllerInfo.createNewScene(getUser(), "/com/proj2/rewards.fxml", new RewardController());
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
     }
 
     public void logOutButton(ActionEvent actionEvent) {
-        user.setLoggedIn(false);
+        getUser().setLoggedIn(false);
         ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        nameUser.setText(user.getName());
-        pointsUser.setText(Integer.toString(((User) user).getPoints()));
+        nameUser.setText(getUser().getName());
+        pointsUser.setText(Integer.toString(((User) getUser()).getPoints()));
     }
 }

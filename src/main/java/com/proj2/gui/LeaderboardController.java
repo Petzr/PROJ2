@@ -21,9 +21,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class LeaderboardController implements Initializable, IControllerInfo, Observer
+public class LeaderboardController extends MainController implements Initializable, Observer
 {
-    private AbstractPerson user;
 
     @FXML
     public TableView<User> leaderboardTable;
@@ -31,23 +30,6 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     private TableColumn<User, String> usercolomn;
     @FXML
     private TableColumn<User, Integer> pointscolomn;
-
-    public void backToDashboard(ActionEvent actionEvent) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene;
-        if (user instanceof Admin) scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
-        else scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,7 +40,7 @@ public class LeaderboardController implements Initializable, IControllerInfo, Ob
     // Observer Pattern: de leaderboard krijgt een update
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update leaderboard " + user.getName());
+        System.out.println("update leaderboard " + getUser().getName());
         leaderboardTable.refresh();
     }
 

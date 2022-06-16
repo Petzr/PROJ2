@@ -23,11 +23,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class TripHistoryController implements Initializable, IControllerInfo, Observer
+public class TripHistoryController extends MainController implements Initializable, Observer
 {
-
-    private AbstractPerson user;
-
     @FXML
     private TableColumn<Travel, String> colomnDate;
 
@@ -36,21 +33,6 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
 
     @FXML
     private TableView<Travel> historyTable;
-
-    public void backToDashboard(ActionEvent actionEvent) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/dashboard.fxml", new DashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void update(Observable o, Object arg) {
@@ -68,8 +50,8 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (user instanceof User) {
-            user.addObserver(this);
+        if (getUser() instanceof User) {
+            getUser().addObserver(this);
         }
         createTable();
     }
@@ -77,7 +59,7 @@ public class TripHistoryController implements Initializable, IControllerInfo, Ob
     private ObservableList<Travel> getTravelList() {
         ObservableList<Travel> list = FXCollections.observableArrayList();
 
-        User person = (User) user;
+        User person = (User) getUser();
         for (Travel travel : person.getTravels())
         {
             list.add(travel);

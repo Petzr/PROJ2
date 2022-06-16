@@ -15,9 +15,8 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeletingUserController implements Initializable, IControllerInfo
+public class DeletingUserController extends MainController implements Initializable
 {
-    private AbstractPerson user;
 
     @FXML
     private TextField mailtf;
@@ -32,29 +31,13 @@ public class DeletingUserController implements Initializable, IControllerInfo
     private Label delLabel;
 
     @FXML
-    public void backToDashboard(ActionEvent actionEvent) {
-        // dit is nodig om de stage te bepalen
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        // hier wordt de nieuwe scene gemaakt en de user meegegeven
-        Scene scene = IControllerInfo.createNewScene(user, "/com/proj2/admin-dashboard.fxml", new AdminDashboardController());
-
-        // spreekt voorzich denk...
-        if (scene != null) stage.setScene(scene);
-    }
-
-    @FXML
     void deletingUser(ActionEvent event) {
-        if (user.comparePassword(passwordAdmintf.getText()))
-            if (user instanceof Admin) {
-                ((Admin) user).removeUser(mailtf.getText());
+        if (getUser().comparePassword(passwordAdmintf.getText()))
+            if (getUser() instanceof Admin) {
+                ((Admin) getUser()).removeUser(mailtf.getText());
                 delLabel.setText("User deleted.");
             }
     }
-
-    @Override
-    public void setUser(AbstractPerson user) { this.user = user; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
