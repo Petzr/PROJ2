@@ -23,13 +23,7 @@ public class ChangeDataController extends MainController implements Initializabl
     private PasswordField oldPassword;
     @FXML
     private Label regLabel;
-    @FXML
-    private TextField pictureTextfield;
-    @FXML
-    private ImageView profilePicture;
-
-    @FXML
-    public void newProfilePicture() {}
+    
     @FXML
     void changeData(ActionEvent event)
     {
