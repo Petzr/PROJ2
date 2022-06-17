@@ -6,11 +6,11 @@ public class Motorcycle extends AbstractVehicle {
 
     @Override
     public double getModifier() {
-        return 13;
+        return 10;
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Motorcycle";
     }
 }
