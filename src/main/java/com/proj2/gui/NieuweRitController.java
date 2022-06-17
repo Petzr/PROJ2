@@ -60,6 +60,7 @@ public class NieuweRitController extends MainController implements Initializable
                 new DieselCar(),
                 new ElectricCar(),
                 new GasolineCar(),
+                new Motorcycle(),
                 new Plane(),
                 new PublicTransport()
         ));
