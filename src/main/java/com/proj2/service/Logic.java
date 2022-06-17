@@ -34,16 +34,3 @@ public class Logic {
     }
 }
 
-class AscendingComparator implements Comparator<User> {
-    @Override
-    public int compare(User user1, User user2) {
-        return user1.getPoints().compareTo(user2.getPoints());
-    }
-}
-
-class DescendingComparator implements Comparator<User> {
-    @Override
-    public int compare(User user1, User user2) {
-        return user2.getPoints().compareTo(user1.getPoints());
-    }
-}
