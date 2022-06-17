@@ -30,11 +30,6 @@ public class ChangeDataController implements Initializable, IControllerInfo
     @FXML
     private Label regLabel;
 
-    @FXML
-    private TextField pictureTextfield;
-
-    @FXML
-    private ImageView profilePicture;
 
     @FXML
     void backToDashboard(ActionEvent event) {
@@ -49,11 +44,6 @@ public class ChangeDataController implements Initializable, IControllerInfo
 
         // spreekt voorzich denk...
         if (scene != null) stage.setScene(scene);
-    }
-
-    public void newProfilePicture()
-    {
-
     }
 
     @FXML
